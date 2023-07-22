@@ -21,8 +21,8 @@ void main() {
   // Function to display the menu
   void displayMenu() {
     print('========== Library Management System ==========');
-    print('1. Admin Login');
-    print('2. User Login');
+    print('1. Login as an Admin');
+    print('2. Login as a User');
     print('3. Register a New Admin');
     print('4. Register a New User');
     print('5. Exit');
@@ -67,7 +67,7 @@ void main() {
         break;
       
       case 3:
-        print("Enter New Admin Name");
+        print("\nEnter New Admin Name");
         String newAdmin=stdin.readLineSync()!;
         print("Enter Password");
         String newAdminPass=stdin.readLineSync()!;
@@ -75,7 +75,7 @@ void main() {
         print("New Admin is Registered");
       
       case 4:
-        print("Enter New User Name");
+        print("\nEnter New User Name");
         String newUser=stdin.readLineSync()!;
         print("Enter Password");
         String newUserPass=stdin.readLineSync()!;
