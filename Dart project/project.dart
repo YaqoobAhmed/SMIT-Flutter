@@ -23,7 +23,9 @@ void main() {
     print('========== Library Management System ==========');
     print('1. Admin Login');
     print('2. User Login');
-    print('3. Exit');
+    print('3. Register a New Admin');
+    print('4. Register a New User');
+    print('5. Exit');
     print('==============================================');
     print('Enter your choice: ');
   }
@@ -63,8 +65,24 @@ void main() {
           print('Invalid user credentials.');
         }
         break;
-
+      
       case 3:
+        print("Enter New Admin Name");
+        String newAdmin=stdin.readLineSync()!;
+        print("Enter Password");
+        String newAdminPass=stdin.readLineSync()!;
+        admins[newAdmin]=newAdminPass;
+        print("New Admin is Registered");
+      
+      case 4:
+        print("Enter New User Name");
+        String newUser=stdin.readLineSync()!;
+        print("Enter Password");
+        String newUserPass=stdin.readLineSync()!;
+        users[newUser]=newUserPass;
+        print("New User is Registered");
+
+      case 5:
         print('Exiting the Library Management System...');
         return ;
 
