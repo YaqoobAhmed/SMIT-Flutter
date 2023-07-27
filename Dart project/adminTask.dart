@@ -45,7 +45,7 @@ import 'project.dart';
         break;
 
       case 4:
-        print('Logging out from Admin Panel...');
+        print('Logging out from Admin Panel...Your login time was $LoginTime ');
         break;
 
       default:

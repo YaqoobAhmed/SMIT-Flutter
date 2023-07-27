@@ -13,8 +13,9 @@ import "userTask.dart";
     'user1': 'userpass1',
     'user2': 'userpass2',
   };
-List<String> books = ['Book 1', 'Book 2', 'Book 3', 'Book 4', 'Book 5'];
+  List<String> books = ['Book 1', 'Book 2', 'Book 3', 'Book 4', 'Book 5'];
   Map<String, List<String>> borrowedBooks = {};
+  DateTime? LoginTime;
 
 void main() {
 
@@ -45,6 +46,7 @@ void main() {
         if (admins.containsKey(adminUsername) &&
             admins[adminUsername] == adminPassword) {
           print('Admin Login Successful.');
+          LoginTime=DateTime.now(); // for login time
           adminTask();
         } else {
           print('Invalid admin credentials.');
@@ -60,6 +62,7 @@ void main() {
         if (users.containsKey(userUsername) &&
             users[userUsername] == userPassword) {
           print('User Login Successful.');
+          LoginTime=DateTime.now(); //for login time
           userTask(userUsername);
         } else {
           print('Invalid user credentials.');
