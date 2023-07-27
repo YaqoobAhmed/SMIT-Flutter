@@ -32,10 +32,10 @@ void main() {
   }
  
   // Main program loop
-  while (true) {
+  int choice = int.parse(stdin.readLineSync()!);
+  do {
     displayMenu();
-    int choice = int.parse(stdin.readLineSync()!);
-
+    
     switch (choice) {
       case 1:
         print('\nEnter admin username: ');
@@ -92,5 +92,6 @@ void main() {
       default:
         print('Invalid choice.');
     }
-  }
+  } while (choice==5);
+  
 }
