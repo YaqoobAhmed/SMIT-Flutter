@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_demo_screen/chat_widget.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -10,15 +11,8 @@ class ChatScreen extends StatelessWidget {
         backgroundColor: Colors.green,
         title: const Text("WhatsApp"),
       ),
-      body: const ListTile(
-        tileColor: Colors.lightGreenAccent,
-        leading: CircleAvatar(
-          radius: 24,
-          backgroundImage: AssetImage("assets/images/whatsapp.png"),
-        ),
-        title: Text("Yaqoob"),
-        subtitle: Text("Han kidhr ho ?"),
-        trailing: Text("2:32 PM"),
+      body: const Column(
+        children: [ChatWidget(), ChatWidget(), ChatWidget()],
       ),
     );
   }
