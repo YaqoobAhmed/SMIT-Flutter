@@ -1,25 +1,36 @@
 import 'package:flutter/material.dart';
 
 class ChatWidget extends StatelessWidget {
-  const ChatWidget({super.key});
+  final String name;
+  final String message;
+  final String time;
+  const ChatWidget(
+      {super.key,
+      required this.name,
+      required this.message,
+      required this.time});
 
   @override
   Widget build(BuildContext context) {
-    return const ListTile(
-      tileColor: Colors.lightGreenAccent,
-      leading: CircleAvatar(
-        radius: 24,
-        backgroundImage: AssetImage("assets/images/whatsapp.png"),
-      ),
-      title: Text("Yaqoob"),
-      subtitle: Text(
-        "Han kidhr ho ? aj kal nazar hi nahi a rhae yaar kahan gaib ho?",
-        overflow: TextOverflow.ellipsis,
-      ),
-      trailing: Text(
-        "2:32 PM",
-        style: TextStyle(fontStyle: FontStyle.italic),
-      ),
+    return Column(
+      children: [
+        ListTile(
+          leading: const CircleAvatar(
+            radius: 24,
+            backgroundImage: AssetImage("assets/images/whatsapp.png"),
+          ),
+          title: Text(name),
+          subtitle: Text(
+            message,
+            overflow: TextOverflow.ellipsis,
+          ),
+          trailing: Text(
+            time,
+            style: const TextStyle(
+                fontStyle: FontStyle.italic, color: Colors.black),
+          ),
+        ),
+      ],
     );
   }
 }
