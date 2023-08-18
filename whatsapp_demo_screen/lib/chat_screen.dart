@@ -11,11 +11,22 @@ class ChatScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 37, 211, 102),
         title: const Text("WhatsApp"),
+        leading: const Icon(
+          Icons.contacts,
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.amber,
+                  shadowColor: Colors.green,
+                  shape: OvalBorder(),
+                  side: BorderSide(color: Colors.black),
+                  surfaceTintColor: Colors.blueAccent,
+                ),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -24,101 +35,7 @@ class ChatScreen extends StatelessWidget {
                       ));
                 },
                 child: Text("Status")),
-            const ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
-            ChatWidget(
-              name: "Yaqoob",
-              message: "aja mai hawaon mai ura ke leke chalun tujhko",
-              time: "2:37",
-            ),
+            ChatWidget(name: "Yaqoob", message: "name kia hai", time: "time")
           ],
         ),
       ),
