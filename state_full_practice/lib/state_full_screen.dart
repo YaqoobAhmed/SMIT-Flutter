@@ -45,7 +45,7 @@ class _ScreenState extends State<Screen> {
                 title: Text(nameList[index]),
               ),
               SizedBox(
-                height: 2,
+                height: 1.5,
               )
             ],
           );
