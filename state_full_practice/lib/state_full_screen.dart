@@ -35,21 +35,31 @@ class _ScreenState extends State<Screen> {
               child: const Text("Add"))
         ],
       ),
-      body: ListView.builder(
-        itemCount: nameList.length,
-        itemBuilder: (context, index) {
-          return Column(
-            children: [
-              ListTile(
-                tileColor: Colors.green[100],
-                title: Text(nameList[index]),
-              ),
-              SizedBox(
-                height: 1.5,
-              )
-            ],
-          );
-        },
+      body: Column(
+        children: [
+          Container(
+            height: 100,
+            color: Colors.amber,
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: nameList.length,
+            itemBuilder: (context, index) {
+              return Column(
+                children: [
+                  ListTile(
+                    tileColor: Colors.green[100],
+                    title: Text(nameList[index]),
+                  ),
+                  SizedBox(
+                    height: 1.5,
+                  )
+                ],
+              );
+            },
+          ),
+        ],
       ),
     );
   }
