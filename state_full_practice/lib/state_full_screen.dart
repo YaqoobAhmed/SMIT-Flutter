@@ -49,9 +49,15 @@ class _ScreenState extends State<Screen> {
               return Column(
                 children: [
                   ListTile(
-                    tileColor: Colors.green[100],
-                    title: Text(nameList[index]),
-                  ),
+                      tileColor: Colors.green[100],
+                      title: Text(nameList[index]),
+                      trailing: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              nameList.removeAt(index);
+                            });
+                          },
+                          icon: Icon(Icons.delete))),
                   SizedBox(
                     height: 1.5,
                   )
