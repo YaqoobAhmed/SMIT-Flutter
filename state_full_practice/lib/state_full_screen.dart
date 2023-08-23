@@ -7,38 +7,7 @@ class Screen extends StatefulWidget {
 }
 
 class _ScreenState extends State<Screen> {
-  List<String> nameList = [
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-    '.',
-  ];
+  List<String> nameList = [];
   TextEditingController addname = TextEditingController();
 
   void newEntry() {
@@ -67,57 +36,55 @@ class _ScreenState extends State<Screen> {
               child: const Text("Add"))
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-              height: 50,
-              width: double.infinity,
-              color: Colors.lightBlue,
-              child: const Column(
-                children: [
-                  Text(
-                    "Enter your Names here",
-                  ),
-                  Text(
-                    "Your data is save with us",
-                    style: TextStyle(fontWeight: FontWeight.w200),
-                  )
-                ],
-              )),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 20,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    ListTile(
-                      tileColor: Colors.green[100],
-                      title: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            index.toString(),
-                          ),
-                          IconButton(
-                              style: ButtonStyle(alignment: Alignment.topRight),
-                              onPressed: () {
-                                setState(() {
-                                  nameList.removeAt(index);
-                                });
-                              },
-                              icon: const Icon(Icons.delete)),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 1.5,
-                    )
-                  ],
-                );
-              },
-            ),
-          ),
-        ],
+      body: ListView.builder(
+        itemCount: nameList.length,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              ListTile(
+                tileColor: Colors.green[200],
+                title: Text(nameList[index]),
+                trailing: Wrap(children: [
+                  IconButton(
+                      iconSize: 25,
+                      onPressed: () {
+                        setState(() {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text("Update Name"),
+                                content: TextField(
+                                  controller: addname,
+                                ),
+                                actions: [
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        nameList[index] = "updated";
+                                      },
+                                      child: Text("Edit")),
+                                ],
+                              );
+                            },
+                          );
+                        });
+                      },
+                      icon: Icon(Icons.edit)),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          nameList.removeAt(index);
+                        });
+                      },
+                      icon: const Icon(Icons.delete)),
+                ]),
+              ),
+              const SizedBox(
+                height: 1.5,
+              )
+            ],
+          );
+        },
       ),
     );
   }
