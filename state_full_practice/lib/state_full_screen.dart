@@ -7,7 +7,38 @@ class Screen extends StatefulWidget {
 }
 
 class _ScreenState extends State<Screen> {
-  List<String> nameList = [];
+  List<String> nameList = [
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+  ];
   TextEditingController addname = TextEditingController();
 
   void newEntry() {
@@ -22,6 +53,7 @@ class _ScreenState extends State<Screen> {
     return Scaffold(
       appBar: AppBar(
         title: TextField(
+          autofocus: true,
           controller: addname,
           decoration: const InputDecoration(
             hintText: 'Enter your Name',
@@ -38,32 +70,52 @@ class _ScreenState extends State<Screen> {
       body: Column(
         children: [
           Container(
-            height: 100,
-            color: Colors.amber,
-          ),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: nameList.length,
-            itemBuilder: (context, index) {
-              return Column(
+              height: 50,
+              width: double.infinity,
+              color: Colors.lightBlue,
+              child: const Column(
                 children: [
-                  ListTile(
-                      tileColor: Colors.green[100],
-                      title: Text(nameList[index]),
-                      trailing: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              nameList.removeAt(index);
-                            });
-                          },
-                          icon: Icon(Icons.delete))),
-                  SizedBox(
-                    height: 1.5,
+                  Text(
+                    "Enter your Names here",
+                  ),
+                  Text(
+                    "Your data is save with us",
+                    style: TextStyle(fontWeight: FontWeight.w200),
                   )
                 ],
-              );
-            },
+              )),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 20,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    ListTile(
+                      tileColor: Colors.green[100],
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            index.toString(),
+                          ),
+                          IconButton(
+                              style: ButtonStyle(alignment: Alignment.topRight),
+                              onPressed: () {
+                                setState(() {
+                                  nameList.removeAt(index);
+                                });
+                              },
+                              icon: const Icon(Icons.delete)),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 1.5,
+                    )
+                  ],
+                );
+              },
+            ),
           ),
         ],
       ),
