@@ -7,15 +7,18 @@ class Screen extends StatefulWidget {
 }
 
 class _ScreenState extends State<Screen> {
-  List<String> nameList = [];
-  TextEditingController addname = TextEditingController();
+  List<String> todoList = [];
+  TextEditingController addList = TextEditingController();
+  TextEditingController updateList = TextEditingController();
 
   void newEntry() {
     setState(() {
-      nameList.add(addname.text);
-      addname.clear();
+      todoList.add(addList.text);
+      addList.clear();
     });
   }
+
+  void updateEntry() {}
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +26,9 @@ class _ScreenState extends State<Screen> {
       appBar: AppBar(
         title: TextField(
           autofocus: true,
-          controller: addname,
+          controller: addList,
           decoration: const InputDecoration(
-            hintText: 'Enter your Name',
+            hintText: 'Enter Todo List Here',
           ),
         ),
         actions: [
@@ -37,43 +40,45 @@ class _ScreenState extends State<Screen> {
         ],
       ),
       body: ListView.builder(
-        itemCount: nameList.length,
+        itemCount: todoList.length,
         itemBuilder: (context, index) {
           return Column(
             children: [
               ListTile(
                 tileColor: Colors.green[200],
-                title: Text(nameList[index]),
+                title: Text(todoList[index]),
                 trailing: Wrap(children: [
                   IconButton(
                       iconSize: 25,
                       onPressed: () {
-                        setState(() {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                title: Text("Update Name"),
-                                content: TextField(
-                                  controller: addname,
-                                ),
-                                actions: [
-                                  ElevatedButton(
-                                      onPressed: () {
-                                        nameList[index] = "updated";
-                                      },
-                                      child: Text("Edit")),
-                                ],
-                              );
-                            },
-                          );
-                        });
+                        updateList.text = todoList[index];
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: Text("Update List"),
+                              content: TextField(
+                                controller: updateList,
+                              ),
+                              actions: [
+                                ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        todoList[index] = updateList.text;
+                                      });
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text("Update")),
+                              ],
+                            );
+                          },
+                        );
                       },
                       icon: Icon(Icons.edit)),
                   IconButton(
                       onPressed: () {
                         setState(() {
-                          nameList.removeAt(index);
+                          todoList.removeAt(index);
                         });
                       },
                       icon: const Icon(Icons.delete)),
