@@ -18,7 +18,30 @@ class _ScreenState extends State<Screen> {
     });
   }
 
-  void updateEntry() {}
+  UpdateEntry(index) {
+    updateList.text = todoList[index];
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Update List"),
+          content: TextField(
+            controller: updateList,
+          ),
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    todoList[index] = updateList.text;
+                  });
+                  Navigator.pop(context);
+                },
+                child: Text("Update")),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,28 +89,7 @@ class _ScreenState extends State<Screen> {
                         IconButton(
                             iconSize: 25,
                             onPressed: () {
-                              updateList.text = todoList[index];
-                              showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    title: Text("Update List"),
-                                    content: TextField(
-                                      controller: updateList,
-                                    ),
-                                    actions: [
-                                      ElevatedButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              todoList[index] = updateList.text;
-                                            });
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text("Update")),
-                                    ],
-                                  );
-                                },
-                              );
+                              UpdateEntry(index);
                             },
                             icon: Icon(Icons.edit)),
                         IconButton(
