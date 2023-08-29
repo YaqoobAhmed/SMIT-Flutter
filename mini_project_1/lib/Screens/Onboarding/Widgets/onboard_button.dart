@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mini_project_1/Screens/Onboarding/onboarding_screen2.dart';
 import 'package:mini_project_1/Screens/Widgets/colors.dart';
 
 class OnboardButton extends StatelessWidget {
-  const OnboardButton({super.key});
+  final void Function()? onPressed;
+  OnboardButton({super.key, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +17,7 @@ class OnboardButton extends StatelessWidget {
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(
                         20)))), //for shaping the corner of the botton
-            onPressed: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Onboarding2(),
-                  ));
-            },
+            onPressed: onPressed,
             child: Padding(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: Row(

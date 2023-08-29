@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_heading_text.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_sub_text.dart';
+import 'package:mini_project_1/Screens/Onboarding/onboarding_screen2.dart';
 import 'package:mini_project_1/Screens/Widgets/colors.dart';
 
 import 'Widgets/onboard_button.dart';
@@ -31,7 +32,15 @@ class Onboarding1 extends StatelessWidget {
                 ),
               ),
             ),
-            OnboardButton(),
+            OnboardButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Onboarding2(),
+                    ));
+              },
+            ),
           ],
         ),
       ),
