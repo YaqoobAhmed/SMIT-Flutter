@@ -48,55 +48,55 @@ class _HomeScreenState extends State<HomeScreen> {
         child: GridView.builder(
           itemCount: car.length,
           padding: EdgeInsets.all(7),
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 1.3,
+              mainAxisSpacing: 30,
+              crossAxisSpacing: 10),
           itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(2.0),
-              child: GridTile(
-                  child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ImageScreen(index: index),
-                      ));
-                },
-                child: Container(
-                  color: Colors.amberAccent,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Image.network(car[index]["image"]),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            car[index]["color"],
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ImageScreen(index: index),
+                    ));
+              },
+              child: Container(
+                color: Colors.amberAccent,
+                child: Column(
+                  children: [
+                    Image.network(
+                      car[index]["image"],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          car[index]["color"],
+                          style: TextStyle(
+                            color: Colors.black,
                           ),
-                          SizedBox(width: 5),
-                          Text(
-                            car[index]["company"],
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
+                        ),
+                        SizedBox(width: 5),
+                        Text(
+                          car[index]["company"],
+                          style: TextStyle(
+                            color: Colors.black,
                           ),
-                          SizedBox(width: 5),
-                          Text(
-                            car[index]["name"],
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
+                        ),
+                        SizedBox(width: 5),
+                        Text(
+                          car[index]["name"],
+                          style: TextStyle(
+                            color: Colors.black,
                           ),
-                        ],
-                      )
-                    ],
-                  ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
-              )),
+              ),
             );
           },
         ),
