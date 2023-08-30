@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Onboarding/Screens/onboarding_screen1.dart';
-import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_heading_text.dart';
 import 'package:mini_project_1/Screens/Widgets/colors.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
