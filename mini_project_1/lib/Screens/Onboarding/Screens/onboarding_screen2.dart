@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mini_project_1/Screens/Grocery%20Home/grocery_home.dart';
+import 'package:mini_project_1/Screens/Grocery%20Home/Screens/grocery_home_screen1.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_heading_text.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_nav_style.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_sub_text.dart';

@@ -15,13 +15,12 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
     return Scaffold(
       body: Stack(children: [
         Container(
-          height: 240,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: AllColors.primarycolor,
-              borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20))),
+              // borderRadius: const BorderRadius.only(
+              //     bottomLeft: Radius.circular(20),
+              //     bottomRight: Radius.circular(20)),
+              color: AllColors.primarycolor),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 52, horizontal: 20),
@@ -123,6 +122,13 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
               ) //for darker text
             ],
           )),
+        ),
+        Positioned(
+          top: 100,
+          child: Container(
+            height: 200,
+            color: Colors.amber,
+          ),
         )
       ]),
     );
