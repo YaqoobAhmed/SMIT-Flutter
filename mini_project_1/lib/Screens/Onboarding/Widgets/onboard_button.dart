@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Widgets/colors.dart';
 
 class OnboardButton extends StatelessWidget {
+  final String data;
   final void Function()? onPressed;
-  OnboardButton({super.key, this.onPressed});
+  OnboardButton({super.key, this.onPressed, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class OnboardButton extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    "Get Started",
+                    data,
                     style: TextStyle(
                         color: AllColors.BottonTextColor,
                         fontFamily: "Manrope",

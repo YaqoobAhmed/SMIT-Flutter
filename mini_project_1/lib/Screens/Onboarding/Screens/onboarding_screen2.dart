@@ -38,18 +38,20 @@ class Onboarding2 extends StatelessWidget {
             Positioned(top: 346, left: 42, child: OnboardNavStyleLight()),
             Positioned(top: 346, left: 88, child: OnboardNavStyleDark()),
             Positioned(
-                top: 430,
-                left: 123,
-                child: Icon(
-                  Icons.photo_album_outlined,
-                  color: AllColors.SubTextColor,
-                  weight: 1,
-                  size: 129,
+                top: 390,
+                left: 70,
+                child: Center(
+                  child: Image.asset(
+                    "assets/images/ecommerce-checkout-laptop-concept-illustration/6479017.jpg",
+                    width: 230,
+                    height: 210,
+                  ),
                 )),
             Positioned(
               top: 640,
               left: 61,
               child: OnboardButton(
+                data: "Get Started",
                 onPressed: () {
                   Navigator.pushReplacement(
                       context,

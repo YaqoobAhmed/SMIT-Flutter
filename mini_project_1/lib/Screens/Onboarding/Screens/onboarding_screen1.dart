@@ -35,21 +35,23 @@ class Onboarding1 extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(top: 347, left: 42, child: OnboardNavStyleDark()),
+            Positioned(top: 346, left: 42, child: OnboardNavStyleDark()),
             Positioned(top: 345, left: 78, child: OnboardNavStyleLight()),
             Positioned(
-                top: 430,
-                left: 123,
-                child: Icon(
-                  Icons.photo_album_outlined,
-                  color: AllColors.SubTextColor,
-                  weight: 1,
-                  size: 129,
+                top: 390,
+                left: 60,
+                child: Center(
+                  child: Image.asset(
+                    "assets/images/online-shopping-concept-landing-page/2672252.jpg",
+                    width: 250,
+                    height: 210,
+                  ),
                 )),
             Positioned(
               top: 640,
               left: 61,
               child: OnboardButton(
+                data: "Next",
                 onPressed: () {
                   Navigator.pushReplacement(
                       context,

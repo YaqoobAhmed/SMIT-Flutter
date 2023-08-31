@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/searchbar.dart';
 import 'package:mini_project_1/Screens/Widgets/colors.dart';
 
-import '../Onboarding/Widgets/onboard_sub_text.dart';
-
 class GroceryHomeScreen extends StatefulWidget {
   const GroceryHomeScreen({super.key});
 
@@ -21,7 +19,7 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
           width: double.infinity,
           decoration: BoxDecoration(
               color: AllColors.primarycolor,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20))),
         ),
@@ -49,7 +47,8 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
             ),
           ),
         ),
-        Positioned(top: 100, left: 20, right: 20, child: GrocerySearchbar()),
+        const Positioned(
+            top: 100, left: 20, right: 20, child: GrocerySearchbar()),
         Positioned(
           top: 180,
           left: 20,
@@ -102,7 +101,7 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                       color: AllColors.HeadingTextColor,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     "30 Min",
                     style: TextStyle(
