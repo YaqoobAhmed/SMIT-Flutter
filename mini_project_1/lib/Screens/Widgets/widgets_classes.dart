@@ -11,3 +11,7 @@ class AllColors {
 class CustomFontFamily {
   static String regular = "assets/Manrope/Manrope-Regular.ttf";
 }
+
+class MyImages {
+  static String photoImage = "assets/images/Image Icon.png";
+}

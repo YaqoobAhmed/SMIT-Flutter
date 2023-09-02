@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../Widgets/colors.dart';
+import '../../Widgets/widgets_classes.dart';
 
 class GrocerySearchbar extends StatefulWidget {
   const GrocerySearchbar({super.key});
@@ -27,7 +27,7 @@ class _GrocerySearchbarState extends State<GrocerySearchbar> {
         color: AllColors.HeadingTextColor,
         size: 28,
       ),
-      hintText: "Search Here!",
+      hintText: "Search Products or store",
     );
   }
 }

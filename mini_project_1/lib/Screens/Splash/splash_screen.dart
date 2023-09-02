@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Onboarding/Screens/onboarding_screen1.dart';
-import 'package:mini_project_1/Screens/Widgets/colors.dart';
+import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 class SplashScreen extends StatefulWidget {

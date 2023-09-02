@@ -65,6 +65,10 @@ flutter:
     - "assets/images/online-shopping-concept-landing-page/2672252.jpg"
     - assets/images/ecommerce-checkout-laptop-concept-illustration/6479017.jpg
     - "assets/images/Image Icon.png"
+    - "assets/images/savings back/Ellipse 1546.jpg"
+    - "assets/images/savings back/Ellipse 1547.jpg"
+    - "assets/images/savings back/Ellipse 1548.jpg"
+    - "assets/images/savings back/Ellipse 1549.jpg"
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

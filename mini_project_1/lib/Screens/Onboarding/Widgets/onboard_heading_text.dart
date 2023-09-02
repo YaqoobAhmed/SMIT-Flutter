@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mini_project_1/Screens/Widgets/colors.dart';
+import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class OnboardHeadingText extends StatelessWidget {
   final String data;

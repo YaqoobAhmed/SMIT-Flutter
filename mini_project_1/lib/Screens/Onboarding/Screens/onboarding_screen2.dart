@@ -3,7 +3,7 @@ import 'package:mini_project_1/Screens/Grocery%20Home/Screens/grocery_home_scree
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_heading_text.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_nav_style.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_sub_text.dart';
-import 'package:mini_project_1/Screens/Widgets/colors.dart';
+import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 import '../Widgets/onboard_button.dart';
 
