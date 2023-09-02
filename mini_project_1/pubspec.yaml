@@ -64,6 +64,7 @@ flutter:
   assets:
     - "assets/images/online-shopping-concept-landing-page/2672252.jpg"
     - assets/images/ecommerce-checkout-laptop-concept-illustration/6479017.jpg
+    - "assets/images/Image Icon.png"
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -50,6 +50,7 @@ class _ScreenState extends State<Screen> {
         backgroundColor: Color.fromRGBO(7, 172, 70, 1),
         title: Text("ToDo List App"),
       ),
+
       body: Column(
         children: [
           Container(

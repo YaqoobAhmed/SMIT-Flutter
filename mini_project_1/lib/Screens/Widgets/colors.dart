@@ -7,3 +7,7 @@ class AllColors {
   static Color ButtonBackgroundColor = Color(0xffFAFBFD);
   static Color BottonTextColor = Color(0xff1E222B);
 }
+
+class CustomFontFamily {
+  static String regular = "assets/Manrope/Manrope-Regular.ttf";
+}
