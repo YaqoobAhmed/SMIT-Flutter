@@ -18,8 +18,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Mini Project",
-      //home: GroceryHomeScreen(),
-      home: SplashScreen(),
+      home: GroceryHomeScreen(),
+      //home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

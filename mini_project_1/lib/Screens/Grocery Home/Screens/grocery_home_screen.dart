@@ -82,15 +82,93 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.only(left: 20, top: 20),
               child: Text(
                 "Deals on Fruits & Tea",
                 style: TextStyle(
-                    color: Color(0xff1E222B),
-                    fontSize: 30,
-                    fontFamily: CustomFontFamily.regular),
+                  color: AllColors.BottonTextColor,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: CustomFontFamily.bold,
+                ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: GridView.builder(
+                shrinkWrap: true,
+                itemCount: 4,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 0.9,
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                ),
+                itemBuilder: (context, index) => Container(
+                  height: 194,
+                  width: 164,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.white,
+                      border: Border.all(width: 0.3, color: Colors.grey),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey,
+                            spreadRadius: 0.5,
+                            blurRadius: 5,
+                            offset: Offset(-2, 3))
+                      ]),
+                  child: Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              child: Image.asset(
+                                MyImages.photoImage,
+                                color: Color(0xffA1ABC0),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            GestureDetector(
+                                onTap: () {},
+                                child: CircleAvatar(
+                                    backgroundColor: AllColors.primarycolor,
+                                    radius: 14,
+                                    child: Icon(Icons.add))),
+                          ],
+                        ),
+                        Text(
+                          "\$342",
+                          style: TextStyle(
+                            color: AllColors.BottonTextColor,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: "Manrope",
+                          ),
+                        ),
+                        Text(
+                          "Orange Package 1 | 1 bundle",
+                          style: TextStyle(
+                            color: AllColors.BottonTextColor,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "Manrope",
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

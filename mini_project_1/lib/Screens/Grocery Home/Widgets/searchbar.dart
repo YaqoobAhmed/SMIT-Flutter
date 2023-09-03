@@ -16,7 +16,7 @@ class _GrocerySearchbarState extends State<GrocerySearchbar> {
       backgroundColor: MaterialStatePropertyAll(Color(0xff153075)),
       textStyle: MaterialStatePropertyAll(
         TextStyle(
-          color: AllColors.HeadingTextColor,
+          color: AllColors.SubTextColor,
           fontSize: 18,
           fontWeight: FontWeight.w600,
           fontFamily: "Manrope",
@@ -24,7 +24,7 @@ class _GrocerySearchbarState extends State<GrocerySearchbar> {
       ),
       leading: Icon(
         Icons.search,
-        color: AllColors.HeadingTextColor,
+        color: AllColors.SubTextColor,
         size: 28,
       ),
       hintText: "Search Products or store",

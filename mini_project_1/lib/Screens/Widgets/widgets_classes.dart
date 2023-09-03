@@ -10,6 +10,7 @@ class AllColors {
 
 class CustomFontFamily {
   static String regular = "assets/Manrope/Manrope-Regular.ttf";
+  static String bold = "assets/Manrope/Manrope-Bold.ttf";
 }
 
 class MyImages {
