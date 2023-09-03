@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project_1/Screens/Categories/Screens/categories_screen.dart';
 import 'package:mini_project_1/Screens/Grocery%20Home/Screens/grocery_home_screen.dart';
 import 'package:mini_project_1/Screens/Splash/splash_screen.dart';
 
@@ -18,8 +19,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Mini Project",
-      home: GroceryHomeScreen(),
-      //home: SplashScreen(),
+      home: CategoriesScreen(),
+      // home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

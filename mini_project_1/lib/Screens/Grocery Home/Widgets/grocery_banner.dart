@@ -11,7 +11,7 @@ class GroceryBanner extends StatelessWidget {
       children: [
         Stack(children: [
           Container(
-            height: 240,
+            height: 250,
             width: double.infinity,
             decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
@@ -29,13 +29,13 @@ class GroceryBanner extends StatelessWidget {
                     "Hey, Yaqoob",
                     style: TextStyle(
                       color: AllColors.HeadingTextColor,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600,
                       fontFamily: "Manrope",
                     ),
                   ),
                   Icon(
-                    Icons.shopping_cart_outlined,
+                    Icons.shopping_bag_outlined,
                     color: AllColors.HeadingTextColor,
                     size: 25,
                   )

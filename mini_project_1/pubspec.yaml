@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   animated_splash_screen: ^1.3.0
   animated_text_kit: ^4.2.2
+  # font_awesome_flutter: ^10.5.0
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,7 @@ flutter:
     - "assets/images/savings back/Ellipse 1547.jpg"
     - "assets/images/savings back/Ellipse 1548.jpg"
     - "assets/images/savings back/Ellipse 1549.jpg"
+    - "assets/images/full cart.jpg"
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
