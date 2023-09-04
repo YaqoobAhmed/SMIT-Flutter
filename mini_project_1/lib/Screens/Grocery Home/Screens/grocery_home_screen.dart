@@ -101,6 +101,7 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: GridView.builder(
+                      physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: 4,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

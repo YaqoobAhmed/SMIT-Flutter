@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:mini_project_1/Screens/Splash/splash_screen.dart';
+import 'package:mini_project_1/Screens/Categories/Screens/categories_screen.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -18,8 +17,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Mini Project",
-      //home: CategoriesScreen2(),
-      home: SplashScreen(),
+      home: CategoriesScreen(),
+      //home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

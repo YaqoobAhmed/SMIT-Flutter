@@ -90,7 +90,29 @@ class GroceryBanner extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => Dialog(
+                            child: Container(
+                              height: 50,
+                              width: 20,
+                              color: Colors.white,
+                              child: Center(
+                                child: Text(
+                                  "No Other Options",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: "Manrope",
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
                       child: Icon(
                         Icons.arrow_drop_down,
                         color: AllColors.HeadingTextColor,
@@ -107,7 +129,29 @@ class GroceryBanner extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => Dialog(
+                            child: Container(
+                              height: 50,
+                              width: 20,
+                              color: Colors.white,
+                              child: Center(
+                                child: Text(
+                                  "No Other Options",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: "Manrope",
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
                       child: Icon(
                         Icons.arrow_drop_down,
                         color: AllColors.HeadingTextColor,

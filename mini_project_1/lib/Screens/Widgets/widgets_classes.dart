@@ -6,11 +6,13 @@ class AllColors {
   static Color SubTextColor = Color(0xffB2BBCE);
   static Color ButtonBackgroundColor = Color(0xffFAFBFD);
   static Color BottonTextColor = Color(0xff1E222B);
+  static Color secondPrimary = Color(0xffF9B023);
 }
 
 class CustomFontFamily {
   static String regular = "assets/Manrope/Manrope-Regular.ttf";
   static String bold = "assets/Manrope/Manrope-Bold.ttf";
+  static String semibold = "assets/Manrope/Manrope-SemiBold.ttf";
 }
 
 class MyImages {
