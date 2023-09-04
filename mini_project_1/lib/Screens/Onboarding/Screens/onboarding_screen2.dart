@@ -35,8 +35,8 @@ class Onboarding2 extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(top: 346, left: 42, child: OnboardNavStyleLight()),
-            Positioned(top: 346, left: 88, child: OnboardNavStyleDark()),
+            Positioned(top: 346, left: 42, child: OnboardNavStyleDark()),
+            Positioned(top: 345, left: 78, child: OnboardNavStyleLight()),
             Positioned(
                 top: 390,
                 left: 70,

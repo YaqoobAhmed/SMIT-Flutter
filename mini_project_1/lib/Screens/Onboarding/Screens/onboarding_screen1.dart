@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project_1/Screens/Grocery%20Home/Screens/grocery_home_screen.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_heading_text.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_nav_style.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_sub_text.dart';
@@ -35,8 +36,8 @@ class Onboarding1 extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(top: 346, left: 42, child: OnboardNavStyleDark()),
-            Positioned(top: 345, left: 78, child: OnboardNavStyleLight()),
+            Positioned(top: 346, left: 42, child: OnboardNavStyleLight()),
+            Positioned(top: 346, left: 88, child: OnboardNavStyleDark()),
             Positioned(
                 top: 390,
                 left: 60,
@@ -51,12 +52,12 @@ class Onboarding1 extends StatelessWidget {
               top: 640,
               left: 61,
               child: OnboardButton(
-                data: "Next",
+                data: "Get Started",
                 onPressed: () {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Onboarding2(),
+                        builder: (context) => GroceryHomeScreen(),
                       ));
                 },
               ),

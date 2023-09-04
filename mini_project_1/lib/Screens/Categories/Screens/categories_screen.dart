@@ -1,8 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/categories_banner.dart';
-import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/searchbar.dart';
+
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class CategoriesScreen extends StatelessWidget {
