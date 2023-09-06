@@ -33,10 +33,10 @@ class _CategoriesScreen2State extends State<CategoriesScreen2> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Row(
                     children: [
-                      Container(
+                      SizedBox(
                         height: 36,
                         width: 300,
                         child: ListView.builder(
@@ -44,7 +44,7 @@ class _CategoriesScreen2State extends State<CategoriesScreen2> {
                           scrollDirection: Axis.horizontal,
                           itemCount: lables.length,
                           itemBuilder: (context, index) => Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            padding: const EdgeInsets.only(right: 10),
                             child: GestureDetector(
                               onTap: () {
                                 _controllerCategory.jumpToPage(index);
@@ -82,7 +82,7 @@ class _CategoriesScreen2State extends State<CategoriesScreen2> {
                   ),
                 ),
                 Container(
-                    height: MediaQuery.of(context).size.height * 1,
+                    height: MediaQuery.of(context).size.height * 0.615,
                     width: MediaQuery.of(context).size.width * 1,
                     color: Colors.black,
                     child: PageView(

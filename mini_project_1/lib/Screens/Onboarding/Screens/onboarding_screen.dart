@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mini_project_1/Screens/Grocery%20Home/Screens/grocery_home_screen.dart';
 import 'package:mini_project_1/Screens/Onboarding/Screens/onboarding_screen1.dart';
 import 'package:mini_project_1/Screens/Onboarding/Screens/onboarding_screen2.dart';
 import 'package:mini_project_1/Screens/Onboarding/Widgets/onboard_button.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../../bottom_navbar.dart';
 
 class OnboardingScreen extends StatelessWidget {
   OnboardingScreen({super.key});
@@ -52,7 +53,7 @@ class OnboardingScreen extends StatelessWidget {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => GroceryHomeScreen(),
+                      builder: (context) => BottomNavBar(),
                     ));
               },
             ),

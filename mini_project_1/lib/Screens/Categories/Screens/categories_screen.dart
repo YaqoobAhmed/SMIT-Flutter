@@ -92,7 +92,7 @@ class CategoriesScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                        )))
+                        ))),
           ],
         ),
       ),

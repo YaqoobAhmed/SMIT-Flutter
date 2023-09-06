@@ -47,5 +47,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
-//OnboardHeadingText(data: "Mini Project")
