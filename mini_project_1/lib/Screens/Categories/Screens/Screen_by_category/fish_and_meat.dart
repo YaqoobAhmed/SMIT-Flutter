@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/category_box.dart';
+import 'package:mini_project_1/Screens/Products/Screens/prodct_screen.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class FishAndMeatScreen extends StatelessWidget {
@@ -11,14 +12,23 @@ class FishAndMeatScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CategoryBox(
-                title: "Big & Small fishes",
-                subtitle: "Fresh from sea",
-                description: "Starting from",
-                price: "35",
-                weight: "KG",
-                boxColor: Color(0xffFFDC83),
-                image: MyImages.photoImage),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductScreen(),
+                    ));
+              },
+              child: CategoryBox(
+                  title: "Big & Small fishes",
+                  subtitle: "Fresh from sea",
+                  description: "Starting from",
+                  price: "35",
+                  weight: "KG",
+                  boxColor: Color(0xffFFDC83),
+                  image: MyImages.photoImage),
+            ),
             CategoryBox(
                 title: "Halal Meats",
                 subtitle: "Organics & Fresh",

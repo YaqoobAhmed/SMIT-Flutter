@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project_1/Screens/Products/Screens/prodct_screen.dart';
 
 import 'Screens/Splash/splash_screen.dart';
 
@@ -19,6 +20,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: "Mini Project",
       home: SplashScreen(),
+      //home: ProductScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
