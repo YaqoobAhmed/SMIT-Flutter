@@ -4,28 +4,17 @@ import 'package:mini_project_1/Screens/Categories/Widgets/categories_banner.dart
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 List<Map<String, dynamic>> cat_list = [
-  {
-    "title": "Fish",
-    "subtitle": "From Sea",
-    "image":
-        "https://meatmanagement.com/wp-content/uploads/2021/10/iStock-450969175-Copy.jpg"
-  },
-  {
-    "title": "Meat",
-    "subtitle": "Organic",
-    "image":
-        "https://images.ctfassets.net/3s5io6mnxfqz/5GlOYuzg0nApcehTPlbJMy/140abddf0f3f93fa16568f4d035cd5e6/AdobeStock_175165460.jpeg?w=828"
-  },
+  {"title": "Fish", "subtitle": "From Sea", "image": "assets/images/fish.jpg"},
+  {"title": "Meat", "subtitle": "Organic", "image": "assets/images/meat.jpeg"},
   {
     "title": "Vegetables",
     "subtitle": "Organic",
-    "image":
-        "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_center,w_730,h_487/k%2FPhoto%2FLifestyle%2FLifestyle_-_Kitchn_Guide_to_Storing_Produce_and_Vegetables_2019-04-30_PHOTO_Kitchn66447_"
+    "image": "assets/images/veg.jpg"
   },
   {
     "title": "Fruits",
     "subtitle": "Fresh & Organic",
-    "image": "https://leafyplace.com/wp-content/uploads/2019/05/post1358jpg.jpg"
+    "image": "assets/images/fruit.jpg"
   }
 ];
 
@@ -38,7 +27,7 @@ class CategoriesScreen extends StatelessWidget {
       body: Container(
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
               flex: 0,
               child: CategoriesBanner(),
             ),
@@ -46,7 +35,8 @@ class CategoriesScreen extends StatelessWidget {
                 child: GridView.builder(
                     shrinkWrap: true,
                     itemCount: cat_list.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       childAspectRatio: 0.9,
                       crossAxisCount: 2,
                     ),
@@ -58,7 +48,7 @@ class CategoriesScreen extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          CategoriesScreen2()));
+                                          const CategoriesScreen2()));
                             },
                             child: Container(
                               height: 194,
@@ -68,7 +58,7 @@ class CategoriesScreen extends StatelessWidget {
                                   color: Colors.white,
                                   border: Border.all(
                                       width: 0.3, color: Colors.grey),
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                         color: Colors.grey,
                                         spreadRadius: 0.5,
@@ -87,19 +77,22 @@ class CategoriesScreen extends StatelessWidget {
                                                 0.12,
                                         width:
                                             MediaQuery.of(context).size.width *
-                                                0.42,
+                                                0.422,
                                         decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(16),
-                                                topRight: Radius.circular(16)),
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(16),
+                                                    topRight:
+                                                        Radius.circular(16)),
                                             image: DecorationImage(
-                                                image: NetworkImage(
+                                                image: AssetImage(
                                                     cat_list[index]["image"]),
-                                                fit: BoxFit.cover)),
+                                                fit: BoxFit.fill)),
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 25,
                                   ),
                                   Text(

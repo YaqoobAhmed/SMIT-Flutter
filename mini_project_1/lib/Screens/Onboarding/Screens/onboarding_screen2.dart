@@ -10,8 +10,8 @@ class Onboarding2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AllColors.primarycolor,
-      body: SafeArea(
-        child: Container(
+      body: const SafeArea(
+        child: SizedBox(
           width: (294),
           height: (269),
           child: Column(

@@ -16,7 +16,7 @@ class GroceryRecomendedContainer extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.white,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                   color: Colors.grey,
                   spreadRadius: 0.5,
@@ -28,6 +28,9 @@ class GroceryRecomendedContainer extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: Color(0xffE0E2EE), width: 1))),
               child: Padding(
                 padding:
                     EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 8),
@@ -38,11 +41,8 @@ class GroceryRecomendedContainer extends StatelessWidget {
                   color: Color(0xffA1ABC0),
                 ),
               ),
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Color(0xffE0E2EE), width: 1))),
             ),
-            Container(
+            SizedBox(
               height: 65,
               child: ListTile(
                 title: Text("Lemonade"),

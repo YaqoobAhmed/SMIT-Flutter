@@ -17,7 +17,7 @@ class FilterData {
 class ProductScreen extends StatelessWidget {
   ProductScreen({super.key});
 
-  PageController _controllerProducts = PageController();
+  final PageController _controllerProducts = PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

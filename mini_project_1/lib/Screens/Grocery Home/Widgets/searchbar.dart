@@ -13,7 +13,7 @@ class _GrocerySearchbarState extends State<GrocerySearchbar> {
   @override
   Widget build(BuildContext context) {
     return SearchBar(
-      backgroundColor: MaterialStatePropertyAll(Color(0xff153075)),
+      backgroundColor: const MaterialStatePropertyAll(Color(0xff153075)),
       textStyle: MaterialStatePropertyAll(
         TextStyle(
           color: AllColors.SubTextColor,

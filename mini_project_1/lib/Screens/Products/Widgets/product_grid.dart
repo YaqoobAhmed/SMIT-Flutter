@@ -14,7 +14,7 @@ class ProductGrid extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.white,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                   color: Colors.grey,
                   spreadRadius: 0.5,
@@ -26,21 +26,21 @@ class ProductGrid extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: Color(0xffE0E2EE), width: 1))),
               child: Padding(
                 padding:
-                    EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 8),
+                    const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 8),
                 child: Image.asset(
                   MyImages.photoImage,
                   height: 68,
                   width: 68,
-                  color: Color(0xffA1ABC0),
+                  color: const Color(0xffA1ABC0),
                 ),
               ),
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Color(0xffE0E2EE), width: 1))),
             ),
-            Container(
+            const SizedBox(
               height: 65,
               child: ListTile(
                 title: Text("Lemonade"),
@@ -52,18 +52,18 @@ class ProductGrid extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Row(
                   children: [
-                    Text("Unit"),
-                    SizedBox(
+                    const Text("Unit"),
+                    const SizedBox(
                       width: 10,
                     ),
-                    Text("\$15"),
-                    Spacer(),
+                    const Text("\$15"),
+                    const Spacer(),
                     GestureDetector(
                         onTap: () {},
                         child: CircleAvatar(
                             backgroundColor: AllColors.primarycolor,
                             radius: 14,
-                            child: Icon(Icons.add)))
+                            child: const Icon(Icons.add)))
                   ],
                 ),
               ),

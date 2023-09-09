@@ -8,9 +8,11 @@ import 'package:mini_project_1/Screens/Grocery%20Home/Screens/grocery_home_scree
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 import 'package:mini_project_1/Screens/more/Screens/more_screen.dart';
 
-void main() => runApp(MaterialApp(home: BottomNavBar()));
+void main() => runApp(const MaterialApp(home: BottomNavBar()));
 
 class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
+
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
@@ -19,10 +21,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _page = 0;
 
   final tabs = [
-    GroceryHomeScreen(),
-    CategoriesScreen(),
-    FavouriteScreen(),
-    MoreScreen()
+    const GroceryHomeScreen(),
+    const CategoriesScreen(),
+    const FavouriteScreen(),
+    const MoreScreen()
   ];
 
   @override
@@ -64,7 +66,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         buttonBackgroundColor: AllColors.primarycolor,
         backgroundColor: Colors.transparent,
         animationCurve: Curves.easeInOut,
-        animationDuration: Duration(milliseconds: 400),
+        animationDuration: const Duration(milliseconds: 400),
         onTap: (index) {
           setState(() {
             _page = index;

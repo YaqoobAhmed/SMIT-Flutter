@@ -18,20 +18,20 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
     return Scaffold(
       body: Column(
         children: [
-          Expanded(flex: 0, child: GroceryBanner()),
+          const Expanded(flex: 0, child: GroceryBanner()),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  GrocerySaleRow(),
+                  const GrocerySaleRow(),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 15),
                     child: Text(
                       "Recomended",
                       style: TextStyle(
-                          color: Color(0xff1E222B),
+                          color: const Color(0xff1E222B),
                           fontSize: 30,
                           fontFamily: CustomFontFamily.regular),
                     ),
@@ -42,7 +42,7 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                       padding: const EdgeInsets.all(20),
                       child: Row(
                         children: List.generate(
-                            5, (index) => GroceryRecomendedContainer()),
+                            5, (index) => const GroceryRecomendedContainer()),
                       ),
                     ),
                   ),
@@ -79,8 +79,8 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                           "assets/images/savings back/Ellipse 1549.jpg",
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20),
                         child: GrocerySavings(),
                       ),
                     ],
@@ -100,10 +100,10 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: GridView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: 4,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         childAspectRatio: 0.9,
                         crossAxisCount: 2,
                         crossAxisSpacing: 20,
@@ -116,7 +116,7 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                             borderRadius: BorderRadius.circular(16),
                             color: Colors.white,
                             border: Border.all(width: 0.3, color: Colors.grey),
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                   color: Colors.grey,
                                   spreadRadius: 0.5,
@@ -134,7 +134,7 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                                   Container(
                                     child: Image.asset(
                                       MyImages.photoImage,
-                                      color: Color(0xffA1ABC0),
+                                      color: const Color(0xffA1ABC0),
                                     ),
                                   ),
                                 ],
@@ -148,7 +148,7 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                                           backgroundColor:
                                               AllColors.primarycolor,
                                           radius: 14,
-                                          child: Icon(Icons.add))),
+                                          child: const Icon(Icons.add))),
                                 ],
                               ),
                               Text(

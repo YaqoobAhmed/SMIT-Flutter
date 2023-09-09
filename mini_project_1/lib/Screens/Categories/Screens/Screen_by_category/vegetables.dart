@@ -18,7 +18,7 @@ class VegetablesScreen extends StatelessWidget {
                 description: "Starting from",
                 price: "5.29",
                 weight: "KG",
-                boxColor: Color(0xffFFC3BB),
+                boxColor: const Color(0xffFFC3BB),
                 image: MyImages.photoImage),
             CategoryBox(
                 title: "Corn.",
@@ -26,7 +26,7 @@ class VegetablesScreen extends StatelessWidget {
                 description: "Starting from",
                 price: "3.99",
                 weight: "Dazan",
-                boxColor: Color(0xffF0FBC5),
+                boxColor: const Color(0xffF0FBC5),
                 image: MyImages.photoImage),
             CategoryBox(
                 title: "Cucumber",
@@ -34,9 +34,9 @@ class VegetablesScreen extends StatelessWidget {
                 description: "Starting from",
                 price: "2.49",
                 weight: "KG",
-                boxColor: Color.fromARGB(255, 185, 224, 122),
+                boxColor: const Color.fromARGB(255, 185, 224, 122),
                 image: MyImages.photoImage),
-            SizedBox(
+            const SizedBox(
               height: 20,
             )
           ],

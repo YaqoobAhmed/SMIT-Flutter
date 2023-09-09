@@ -3,7 +3,7 @@ import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class OnboardHeadingText extends StatelessWidget {
   final String data;
-  OnboardHeadingText({super.key, required this.data});
+  const OnboardHeadingText({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {

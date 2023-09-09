@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   fontWeight: FontWeight.w700,
                   fontFamily: "Manrope",
                 ),
-                speed: Duration(milliseconds: 120))
+                speed: const Duration(milliseconds: 120))
           ]),
         ),
       ),

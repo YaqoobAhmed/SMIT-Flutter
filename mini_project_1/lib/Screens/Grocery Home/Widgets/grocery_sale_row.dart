@@ -20,11 +20,11 @@ class GrocerySaleRow extends StatelessWidget {
                   width: 256,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      image: DecorationImage(
-                          image: NetworkImage(
-                              "https://img.freepik.com/premium-photo/hand-holding-leather-handbag-blue-background_766625-4125.jpg"),
+                      image: const DecorationImage(
+                          image:
+                              AssetImage("assets/images/shopping-50-off.jpg"),
                           fit: BoxFit.cover),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                             color: Colors.grey,
                             spreadRadius: 0.5,
@@ -36,7 +36,7 @@ class GrocerySaleRow extends StatelessWidget {
                     child: Row(
                       children: [
                         //Image.asset("assets/images/Image Icon.png"),
-                        Spacer(),
+                        const Spacer(),
                         Container(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -80,11 +80,11 @@ class GrocerySaleRow extends StatelessWidget {
                   width: 256,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      image: DecorationImage(
-                          image: NetworkImage(
-                              "https://img.freepik.com/premium-vector/pakistan-3d-flag-green-background-with-polygons_395079-1142.jpg"),
-                          fit: BoxFit.cover),
-                      boxShadow: [
+                      image: const DecorationImage(
+                          image: AssetImage(
+                              "assets/images/flags10green_crh12_07.jpg"),
+                          fit: BoxFit.fill),
+                      boxShadow: const [
                         BoxShadow(
                             color: Colors.grey,
                             spreadRadius: 0.5,
@@ -95,7 +95,7 @@ class GrocerySaleRow extends StatelessWidget {
                     padding: const EdgeInsets.all(18.0),
                     child: Row(
                       children: [
-                        Spacer(),
+                        const Spacer(),
                         Container(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -139,11 +139,10 @@ class GrocerySaleRow extends StatelessWidget {
                   width: 256,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      image: DecorationImage(
-                          image: NetworkImage(
-                              "https://media.istockphoto.com/id/182403488/photo/credit-card-close-up.jpg?s=612x612&w=0&k=20&c=ESCYpgrndx6aDD322RCWG5RVJ-xEv6aN7LpruAUlLSE="),
+                      image: const DecorationImage(
+                          image: AssetImage("assets/images/credit-card-.jpg"),
                           fit: BoxFit.cover),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                             color: Colors.grey,
                             spreadRadius: 0.5,
@@ -154,7 +153,7 @@ class GrocerySaleRow extends StatelessWidget {
                     padding: const EdgeInsets.all(18.0),
                     child: Row(
                       children: [
-                        Spacer(),
+                        const Spacer(),
                         Container(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -13,7 +13,7 @@ List<Itemdata> lables = [
 ];
 
 class CategoriesScreen2 extends StatefulWidget {
-  CategoriesScreen2({super.key});
+  const CategoriesScreen2({super.key});
 
   @override
   State<CategoriesScreen2> createState() => _CategoriesScreen2State();

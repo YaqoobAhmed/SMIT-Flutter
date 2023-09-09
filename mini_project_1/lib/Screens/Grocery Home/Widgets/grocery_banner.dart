@@ -43,7 +43,7 @@ class GroceryBanner extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(top: 100, left: 20, right: 20, child: GrocerySearchbar()),
+          const Positioned(top: 100, left: 20, right: 20, child: GrocerySearchbar()),
           Positioned(
             top: 180,
             left: 20,
@@ -98,7 +98,7 @@ class GroceryBanner extends StatelessWidget {
                               height: 50,
                               width: 20,
                               color: Colors.white,
-                              child: Center(
+                              child: const Center(
                                 child: Text(
                                   "No Other Options",
                                   style: TextStyle(
@@ -137,7 +137,7 @@ class GroceryBanner extends StatelessWidget {
                               height: 50,
                               width: 20,
                               color: Colors.white,
-                              child: Center(
+                              child: const Center(
                                 child: Text(
                                   "No Other Options",
                                   style: TextStyle(

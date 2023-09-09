@@ -4,12 +4,12 @@ import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 class OnboardButton extends StatelessWidget {
   final String data;
   final void Function()? onPressed;
-  OnboardButton({super.key, this.onPressed, required this.data});
+  const OnboardButton({super.key, this.onPressed, required this.data});
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
+      child: SizedBox(
         height: 70,
         width: 253,
         child: ElevatedButton(
@@ -20,7 +20,7 @@ class OnboardButton extends StatelessWidget {
                         20)))), //for shaping the corner of the botton
             onPressed: onPressed,
             child: Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 children: [
                   Text(
@@ -31,7 +31,7 @@ class OnboardButton extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         fontSize: 16),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Icon(
                     Icons.arrow_forward,
                     color: AllColors.BottonTextColor,

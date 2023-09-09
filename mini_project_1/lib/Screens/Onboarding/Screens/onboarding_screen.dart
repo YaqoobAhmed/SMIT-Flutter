@@ -25,7 +25,7 @@ class OnboardingScreen extends StatelessWidget {
                 child: PageView(
                   controller: _controller,
                   //physics: ,
-                  children: [Onboarding1(), Onboarding2()],
+                  children: const [Onboarding1(), Onboarding2()],
                 ),
               ),
               Row(
@@ -36,8 +36,8 @@ class OnboardingScreen extends StatelessWidget {
                     count: 2,
                     effect: ExpandingDotsEffect(
                         dotHeight: 6,
-                        dotColor: Color(0xffF8F9FB).withOpacity(0.23),
-                        activeDotColor: Color(0xffF8F9FB)),
+                        dotColor: const Color(0xffF8F9FB).withOpacity(0.23),
+                        activeDotColor: const Color(0xffF8F9FB)),
                   ),
                 ],
               ),
@@ -54,7 +54,7 @@ class OnboardingScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BottomNavBar(),
+                        builder: (context) => const BottomNavBar(),
                       ));
                 },
               ),

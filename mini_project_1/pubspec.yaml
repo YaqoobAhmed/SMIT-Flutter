@@ -73,6 +73,8 @@ flutter:
     - "assets/images/savings back/Ellipse 1548.jpg"
     - "assets/images/savings back/Ellipse 1549.jpg"
     - "assets/images/full cart.jpg"
+    - "assets/images/"
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

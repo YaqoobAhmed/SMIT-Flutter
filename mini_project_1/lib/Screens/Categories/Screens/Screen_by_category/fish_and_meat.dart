@@ -26,7 +26,7 @@ class FishAndMeatScreen extends StatelessWidget {
                   description: "Starting from",
                   price: "35",
                   weight: "KG",
-                  boxColor: Color(0xffFFDC83),
+                  boxColor: const Color(0xffFFDC83),
                   image: MyImages.photoImage),
             ),
             CategoryBox(
@@ -35,7 +35,7 @@ class FishAndMeatScreen extends StatelessWidget {
                 description: "Starting from",
                 price: "90",
                 weight: "KG",
-                boxColor: Color(0xffFFC3BB),
+                boxColor: const Color(0xffFFC3BB),
                 image: MyImages.photoImage),
             CategoryBox(
                 title: "Fried Items",
@@ -43,9 +43,9 @@ class FishAndMeatScreen extends StatelessWidget {
                 description: "Starting from",
                 price: "24",
                 weight: "KG",
-                boxColor: Color.fromARGB(255, 185, 224, 122),
+                boxColor: const Color.fromARGB(255, 185, 224, 122),
                 image: MyImages.photoImage),
-            SizedBox(
+            const SizedBox(
               height: 20,
             )
           ],

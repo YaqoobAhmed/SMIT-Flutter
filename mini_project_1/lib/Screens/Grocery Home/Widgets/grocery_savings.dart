@@ -14,7 +14,7 @@ class GrocerySavings extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.4,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Color(0xffFFC83A),
+            color: const Color(0xffFFC83A),
           ),
           child: SizedBox(
               child: Column(
@@ -32,7 +32,7 @@ class GrocerySavings extends StatelessWidget {
                       fontFamily: "Manrope",
                     ),
                   ),
-                  Text(" "),
+                  const Text(" "),
                   Text(
                     "USD",
                     style: TextStyle(
@@ -66,7 +66,7 @@ class GrocerySavings extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.4,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Color(0xffE4DDCB),
+            color: const Color(0xffE4DDCB),
           ),
           child: SizedBox(
               child: Column(
@@ -84,7 +84,7 @@ class GrocerySavings extends StatelessWidget {
                       fontFamily: "Manrope",
                     ),
                   ),
-                  Text(" "),
+                  const Text(" "),
                   Text(
                     "HRS",
                     style: TextStyle(

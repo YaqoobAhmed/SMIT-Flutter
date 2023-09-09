@@ -9,7 +9,7 @@ class MoreScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AllColors.primarycolor,
-        title: Center(child: Text("More")),
+        title: const Center(child: Text("More")),
       ),
     );
   }
