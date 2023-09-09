@@ -24,7 +24,6 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // GroceryBanner(),
                   GrocerySaleRow(),
                   Padding(
                     padding: const EdgeInsets.symmetric(

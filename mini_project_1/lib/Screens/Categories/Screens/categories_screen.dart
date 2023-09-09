@@ -3,6 +3,32 @@ import 'package:mini_project_1/Screens/Categories/Screens/categories_screen2.dar
 import 'package:mini_project_1/Screens/Categories/Widgets/categories_banner.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
+List<Map<String, dynamic>> cat_list = [
+  {
+    "title": "Fish",
+    "subtitle": "From Sea",
+    "image":
+        "https://meatmanagement.com/wp-content/uploads/2021/10/iStock-450969175-Copy.jpg"
+  },
+  {
+    "title": "Meat",
+    "subtitle": "Organic",
+    "image":
+        "https://images.ctfassets.net/3s5io6mnxfqz/5GlOYuzg0nApcehTPlbJMy/140abddf0f3f93fa16568f4d035cd5e6/AdobeStock_175165460.jpeg?w=828"
+  },
+  {
+    "title": "Vegetables",
+    "subtitle": "Organic",
+    "image":
+        "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_center,w_730,h_487/k%2FPhoto%2FLifestyle%2FLifestyle_-_Kitchn_Guide_to_Storing_Produce_and_Vegetables_2019-04-30_PHOTO_Kitchn66447_"
+  },
+  {
+    "title": "Fruits",
+    "subtitle": "Fresh & Organic",
+    "image": "https://leafyplace.com/wp-content/uploads/2019/05/post1358jpg.jpg"
+  }
+];
+
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
 
@@ -19,7 +45,7 @@ class CategoriesScreen extends StatelessWidget {
             Expanded(
                 child: GridView.builder(
                     shrinkWrap: true,
-                    itemCount: 6,
+                    itemCount: cat_list.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       childAspectRatio: 0.9,
                       crossAxisCount: 2,
@@ -49,46 +75,52 @@ class CategoriesScreen extends StatelessWidget {
                                         blurRadius: 5,
                                         offset: Offset(-2, 3))
                                   ]),
-                              child: Padding(
-                                padding: const EdgeInsets.all(15),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          child: Image.asset(
-                                            MyImages.photoImage,
-                                            color: Color(0xffA1ABC0),
-                                          ),
-                                        ),
-                                      ],
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.12,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.42,
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(16),
+                                                topRight: Radius.circular(16)),
+                                            image: DecorationImage(
+                                                image: NetworkImage(
+                                                    cat_list[index]["image"]),
+                                                fit: BoxFit.cover)),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Text(
+                                    cat_list[index]["title"],
+                                    style: TextStyle(
+                                      color: AllColors.BottonTextColor,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: "Manrope",
                                     ),
-                                    SizedBox(
-                                      height: 25,
+                                  ),
+                                  Text(
+                                    cat_list[index]["subtitle"],
+                                    style: TextStyle(
+                                      color: AllColors.BottonTextColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: "Manrope",
                                     ),
-                                    Text(
-                                      "Fishes",
-                                      style: TextStyle(
-                                        color: AllColors.BottonTextColor,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        fontFamily: "Manrope",
-                                      ),
-                                    ),
-                                    Text(
-                                      "From Sea",
-                                      style: TextStyle(
-                                        color: AllColors.BottonTextColor,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
-                                        fontFamily: "Manrope",
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
