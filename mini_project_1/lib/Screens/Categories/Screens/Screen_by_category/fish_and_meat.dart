@@ -54,3 +54,30 @@ class FishAndMeatScreen extends StatelessWidget {
     );
   }
 }
+
+List<Map<String, dynamic>> fishNmeat_products = [
+  {
+    "title": "Big & Small fishes",
+    "subtitle": "Fresh from sea",
+    "description": "Starting from",
+    "price": "35",
+    "weight": "KG",
+    'image': "assets/images/fish.jpg"
+  },
+  {
+    "title": "Halal Beef Meats",
+    "subtitle": "Organics & Fresh",
+    "description": "Starting from",
+    "price": "90",
+    "weight": "KG",
+    "image": "assets/images/meat.jpeg"
+  },
+  {
+    "title": "Nuggets",
+    "subtitle": "Halal & Fresh",
+    "description": "Starting from",
+    "price": "24",
+    "weight": "KG",
+    "image": "assets/images/nuggets.jpeg"
+  }
+];

@@ -83,7 +83,7 @@ class GrocerySaleRow extends StatelessWidget {
                       image: const DecorationImage(
                           image: AssetImage(
                               "assets/images/flags10green_crh12_07.jpg"),
-                          fit: BoxFit.fill),
+                          fit: BoxFit.cover),
                       boxShadow: const [
                         BoxShadow(
                             color: Colors.grey,

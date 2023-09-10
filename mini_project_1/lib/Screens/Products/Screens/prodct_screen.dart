@@ -55,135 +55,82 @@ class ProductScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SizedBox(
-                    height: 36,
-                    width: MediaQuery.of(context).size.width * 1,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: filtersLables.length,
-                      itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: GestureDetector(
-                          onTap: () {
-                            // _controllerProducts.jumpToPage(index);
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: filtersLables[index].isSelected == true
-                                    ? AllColors.secondPrimary
-                                    : Colors.white,
-                                border: Border.all(
-                                    width: 1, color: const Color(0xffB2BBCE))),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Center(
-                                  child: Text(
-                                filtersLables[index].itemdata,
-                                style: TextStyle(
-                                  color: filtersLables[index].isSelected == true
-                                      ? Colors.white
-                                      : const Color(0xff616A7D),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: CustomFontFamily.semibold,
-                                ),
-                              )),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
+            padding: const EdgeInsets.all(20),
+            child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: 4,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: 0.9,
+                crossAxisCount: 2,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20,
               ),
-            ),
-          ),
-          Expanded(
-              flex: 0,
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 4,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 0.9,
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
-                  ),
-                  itemBuilder: (context, index) => Container(
-                    height: 194,
-                    width: 164,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        color: Colors.white,
-                        border: Border.all(width: 0.3, color: Colors.grey),
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Colors.grey,
-                              spreadRadius: 0.5,
-                              blurRadius: 5,
-                              offset: Offset(-2, 3))
-                        ]),
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+              itemBuilder: (context, index) => Container(
+                height: 194,
+                width: 164,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.white,
+                    border: Border.all(width: 0.3, color: Colors.grey),
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Colors.grey,
+                          spreadRadius: 0.5,
+                          blurRadius: 5,
+                          offset: Offset(-2, 3))
+                    ]),
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                child: Image.asset(
-                                  MyImages.photoImage,
-                                  color: const Color(0xffA1ABC0),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              GestureDetector(
-                                  onTap: () {},
-                                  child: CircleAvatar(
-                                      backgroundColor: AllColors.primarycolor,
-                                      radius: 14,
-                                      child: const Icon(Icons.add))),
-                            ],
-                          ),
-                          Text(
-                            "\$342",
-                            style: TextStyle(
-                              color: AllColors.BottonTextColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: "Manrope",
+                          Container(
+                            child: Image.asset(
+                              MyImages.photoImage,
+                              color: const Color(0xffA1ABC0),
                             ),
                           ),
-                          Text(
-                            "Orange Package 1 | 1 bundle",
-                            style: TextStyle(
-                              color: AllColors.BottonTextColor,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: "Manrope",
-                            ),
-                          )
                         ],
                       ),
-                    ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                              onTap: () {},
+                              child: CircleAvatar(
+                                  backgroundColor: AllColors.primarycolor,
+                                  radius: 14,
+                                  child: const Icon(Icons.add))),
+                        ],
+                      ),
+                      Text(
+                        "\$342",
+                        style: TextStyle(
+                          color: AllColors.BottonTextColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: "Manrope",
+                        ),
+                      ),
+                      Text(
+                        "Orange Package 1 | 1 bundle",
+                        style: TextStyle(
+                          color: AllColors.BottonTextColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "Manrope",
+                        ),
+                      )
+                    ],
                   ),
                 ),
-              ))
+              ),
+            ),
+          )
         ],
       )),
     );

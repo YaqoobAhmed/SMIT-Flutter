@@ -3,6 +3,7 @@ import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/grocery_banner.dar
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/grocery_recomanded_container.dart';
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/grocery_sale_row.dart';
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/grocery_savings.dart';
+import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/recomended_data.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class GroceryHomeScreen extends StatefulWidget {
@@ -42,7 +43,10 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                       padding: const EdgeInsets.all(20),
                       child: Row(
                         children: List.generate(
-                            5, (index) => const GroceryRecomendedContainer()),
+                            redomended_data.length,
+                            (index) => GroceryRecomendedContainer(
+                                  index: index,
+                                )),
                       ),
                     ),
                   ),
@@ -103,7 +107,8 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: 4,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         childAspectRatio: 0.9,
                         crossAxisCount: 2,
                         crossAxisSpacing: 20,
@@ -123,36 +128,44 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                                   blurRadius: 5,
                                   offset: Offset(-2, 3))
                             ]),
-                        child: Padding(
-                          padding: const EdgeInsets.all(15),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    child: Image.asset(
-                                      MyImages.photoImage,
-                                      color: const Color(0xffA1ABC0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: MediaQuery.of(context).size.height * 0.15,
+                              child: Stack(children: [
+                                Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.13,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(16),
+                                          topRight: Radius.circular(16)),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              deals_on_fruitNtea[index]
+                                                  ['image']),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Positioned(
+                                  bottom: 0,
+                                  right: 10,
+                                  child: GestureDetector(
+                                    onTap: () {},
+                                    child: CircleAvatar(
+                                      backgroundColor: AllColors.primarycolor,
+                                      radius: 14,
+                                      child: const Icon(Icons.add),
                                     ),
                                   ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  GestureDetector(
-                                      onTap: () {},
-                                      child: CircleAvatar(
-                                          backgroundColor:
-                                              AllColors.primarycolor,
-                                          radius: 14,
-                                          child: const Icon(Icons.add))),
-                                ],
-                              ),
-                              Text(
-                                "\$342",
+                                )
+                              ]),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 15),
+                              child: Text(
+                                "\$ ${deals_on_fruitNtea[index]['price']}",
                                 style: TextStyle(
                                   color: AllColors.BottonTextColor,
                                   fontSize: 14,
@@ -160,17 +173,21 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                                   fontFamily: "Manrope",
                                 ),
                               ),
-                              Text(
-                                "Orange Package 1 | 1 bundle",
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 15),
+                              child: Text(
+                                deals_on_fruitNtea[index]['subtitle'],
                                 style: TextStyle(
                                   color: AllColors.BottonTextColor,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
                                   fontFamily: "Manrope",
                                 ),
-                              )
-                            ],
-                          ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
                     ),

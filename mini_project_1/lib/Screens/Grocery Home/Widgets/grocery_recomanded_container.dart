@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/recomended_data.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class GroceryRecomendedContainer extends StatelessWidget {
-  const GroceryRecomendedContainer({super.key});
+  final index;
+  GroceryRecomendedContainer({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class GroceryRecomendedContainer extends StatelessWidget {
       padding: const EdgeInsets.only(right: 10),
       child: Container(
         height: 194,
-        width: MediaQuery.of(context).size.height * 0.18,
+        width: MediaQuery.of(context).size.height * 0.2,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.white,
@@ -27,26 +29,20 @@ class GroceryRecomendedContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Color(0xffE0E2EE), width: 1))),
-              child: Padding(
-                padding:
-                    EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 8),
-                child: Image.asset(
-                  MyImages.photoImage,
-                  height: 68,
-                  width: 68,
-                  color: Color(0xffA1ABC0),
-                ),
-              ),
-            ),
+                height: MediaQuery.of(context).size.height * 0.12,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(redomended_data[index]['image']),
+                      fit: BoxFit.cover),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20)),
+                )),
             SizedBox(
               height: 65,
               child: ListTile(
-                title: Text("Lemonade"),
-                subtitle: Text("Lemonade"),
+                title: Text(redomended_data[index]['title']),
+                subtitle: Text(redomended_data[index]['subtitle']),
               ),
             ),
             Container(
@@ -58,7 +54,7 @@ class GroceryRecomendedContainer extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text("\$15"),
+                    Text("\$${redomended_data[index]['price']}"),
                     Spacer(),
                     GestureDetector(
                         onTap: () {},

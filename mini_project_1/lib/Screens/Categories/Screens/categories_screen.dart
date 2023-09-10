@@ -48,7 +48,7 @@ class CategoriesScreen extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const CategoriesScreen2()));
+                                          CategoriesScreen2()));
                             },
                             child: Container(
                               height: 194,
@@ -68,29 +68,17 @@ class CategoriesScreen extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.12,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.422,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.only(
-                                                    topLeft:
-                                                        Radius.circular(16),
-                                                    topRight:
-                                                        Radius.circular(16)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    cat_list[index]["image"]),
-                                                fit: BoxFit.fill)),
-                                      )
-                                    ],
+                                  Container(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.13,
+                                    decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(16),
+                                            topRight: Radius.circular(16)),
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                cat_list[index]["image"]),
+                                            fit: BoxFit.cover)),
                                   ),
                                   const SizedBox(
                                     height: 25,
@@ -99,7 +87,7 @@ class CategoriesScreen extends StatelessWidget {
                                     cat_list[index]["title"],
                                     style: TextStyle(
                                       color: AllColors.BottonTextColor,
-                                      fontSize: 14,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w600,
                                       fontFamily: "Manrope",
                                     ),
@@ -108,7 +96,7 @@ class CategoriesScreen extends StatelessWidget {
                                     cat_list[index]["subtitle"],
                                     style: TextStyle(
                                       color: AllColors.BottonTextColor,
-                                      fontSize: 12,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w400,
                                       fontFamily: "Manrope",
                                     ),

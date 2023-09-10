@@ -30,8 +30,8 @@ class ProductGrid extends StatelessWidget {
                   border: Border(
                       bottom: BorderSide(color: Color(0xffE0E2EE), width: 1))),
               child: Padding(
-                padding:
-                    const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 8),
+                padding: const EdgeInsets.only(
+                    left: 15, right: 15, top: 15, bottom: 8),
                 child: Image.asset(
                   MyImages.photoImage,
                   height: 68,
