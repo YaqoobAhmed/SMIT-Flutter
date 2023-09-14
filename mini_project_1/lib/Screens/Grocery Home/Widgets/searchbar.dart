@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../Widgets/widgets_classes.dart';
 
-class GrocerySearchbar extends StatefulWidget {
+class GrocerySearchbar extends StatelessWidget {
   const GrocerySearchbar({super.key});
 
-  @override
-  State<GrocerySearchbar> createState() => _GrocerySearchbarState();
-}
-
-class _GrocerySearchbarState extends State<GrocerySearchbar> {
   @override
   Widget build(BuildContext context) {
     return SearchBar(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/category_box.dart';
-import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class FruitsScreen extends StatelessWidget {
   const FruitsScreen({super.key});
@@ -11,39 +10,25 @@ class FruitsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            GestureDetector(
-              // onTap: () {
-              //   Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) => FishAndMeatScreen(),
-              //       ));
-              // },
-              child: CategoryBox(
-                  title: "Banana",
-                  subtitle: "Fresh from Villages",
-                  description: "Starting from",
-                  price: "4.75",
-                  weight: "Dazan",
-                  boxColor: const Color(0xffF0FBC5),
-                  image: MyImages.photoImage),
+            Expanded(
+              flex: 0,
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: fruit_products.length,
+                itemBuilder: (context, index) => CategoryBox(
+                  title: fruit_products[index]["title"],
+                  subtitle: fruit_products[index]["subtitle"],
+                  description: fruit_products[index]["description"],
+                  price: fruit_products[index]["price"],
+                  weight: fruit_products[index]["weight"],
+                  image: fruit_products[index]["image"],
+                  // count: fruit_products[index]["count"],
+                  // favbool: fruit_products[index]["favourite"],
+                ),
+              ),
             ),
-            CategoryBox(
-                title: "WaterMelon",
-                subtitle: "Stored",
-                description: "Starting from",
-                price: "7.49",
-                weight: "KG",
-                boxColor: const Color.fromARGB(255, 185, 224, 122),
-                image: MyImages.photoImage),
-            CategoryBox(
-                title: "Apple",
-                subtitle: "Fresh from Villages",
-                description: "Starting from",
-                price: "5.29",
-                weight: "KG",
-                boxColor: const Color(0xffFFC3BB),
-                image: MyImages.photoImage),
             const SizedBox(
               height: 20,
             )
@@ -53,3 +38,36 @@ class FruitsScreen extends StatelessWidget {
     );
   }
 }
+
+List<Map<String, dynamic>> fruit_products = [
+  {
+    "title": "Banana",
+    "subtitle": "Fresh from Villages",
+    "description": "Starting from",
+    "price": 4.75,
+    "weight": "Dazan",
+    "image": "assets/images/banana.jpeg",
+    "favourite": false,
+    "count": 0
+  },
+  {
+    "title": "WaterMelon",
+    "subtitle": "Stored",
+    "description": "Starting from",
+    "price": 7.49,
+    "weight": "KG",
+    "image": "assets/images/watermellon.jpeg",
+    "favourite": false,
+    "count": 0
+  },
+  {
+    "title": "Apple",
+    "subtitle": "Fresh from Villages",
+    "description": "Starting from",
+    "price": 5.29,
+    "weight": "KG",
+    "image": "assets/images/apple.jpeg",
+    "favourite": false,
+    "count": 0
+  },
+];

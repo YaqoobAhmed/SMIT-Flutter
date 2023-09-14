@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Categories/Screens/Screen_by_category/fish_and_meat.dart';
 import 'package:mini_project_1/Screens/Categories/Screens/Screen_by_category/fruits.dart';
@@ -15,7 +13,7 @@ List<Itemdata> lables = [
 ];
 
 class CategoriesScreen2 extends StatefulWidget {
-  CategoriesScreen2({super.key});
+  const CategoriesScreen2({super.key});
 
   @override
   State<CategoriesScreen2> createState() => _CategoriesScreen2State();
@@ -102,7 +100,7 @@ class _CategoriesScreen2State extends State<CategoriesScreen2> {
                         VegetablesScreen(),
                         FruitsScreen()
                       ],
-                    ))
+                    )),
               ],
             ),
           ))

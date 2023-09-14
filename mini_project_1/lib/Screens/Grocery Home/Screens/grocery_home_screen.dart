@@ -6,14 +6,9 @@ import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/grocery_savings.da
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/recomended_data.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
-class GroceryHomeScreen extends StatefulWidget {
+class GroceryHomeScreen extends StatelessWidget {
   const GroceryHomeScreen({super.key});
 
-  @override
-  State<GroceryHomeScreen> createState() => _GroceryHomeScreenState();
-}
-
-class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
