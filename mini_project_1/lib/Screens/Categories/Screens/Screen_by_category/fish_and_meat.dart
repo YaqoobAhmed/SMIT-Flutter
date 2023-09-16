@@ -38,8 +38,8 @@ class _FishAndMeatScreenState extends State<FishAndMeatScreen> {
                 // count: fishNmeat_products[index]["count"],
                 // favbool: fishNmeat_products[index]["favourite"],
               ),
-            const SizedBox(
-              height: 90,
+            Container(
+              height: MediaQuery.of(context).size.height * 0.11,
             )
           ],
         ),

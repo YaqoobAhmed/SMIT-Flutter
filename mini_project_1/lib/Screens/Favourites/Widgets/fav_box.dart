@@ -35,7 +35,8 @@ class FavouriteBox extends StatelessWidget {
                     image: AssetImage(image), fit: BoxFit.cover)),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            padding:
+                const EdgeInsets.only(left: 20, right: 10, top: 10, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -51,48 +52,53 @@ class FavouriteBox extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Wrap(children: [
-                  InkWell(
-                      onTap: onPressed_fav,
-                      child: Icon(
-                        Icons.favorite,
-                        size: 30,
-                        color: AllColors.secondPrimary,
-                      )),
-                  SizedBox(
-                    width: 10,
+                Container(
+                  width: MediaQuery.of(context).size.height * 0.23,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                          onTap: onPressed_fav,
+                          child: Icon(
+                            Icons.favorite,
+                            size: 30,
+                            color: AllColors.secondPrimary,
+                          )),
+                      RichText(
+                          text: TextSpan(children: [
+                        TextSpan(
+                          text: "\$ $price",
+                          style: TextStyle(
+                            color: const Color(0xff2A4BA0),
+                            height: 1.6,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: CustomFontFamily.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text: "/$weight",
+                          style: TextStyle(
+                            color: const Color(0xff2A4BA0),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: CustomFontFamily.regular,
+                          ),
+                        )
+                      ])),
+                      InkWell(
+                        onTap: () {},
+                        child: CircleAvatar(
+                            backgroundColor: AllColors.primarycolor,
+                            radius: 14,
+                            child: Icon(Icons.add)),
+                      ),
+                    ],
                   ),
-                  Text(
-                    "\$ $price",
-                    style: TextStyle(
-                      color: const Color(0xff2A4BA0),
-                      height: 1.6,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: CustomFontFamily.bold,
-                    ),
-                  ),
-                  Text(
-                    "/$weight",
-                    style: TextStyle(
-                      color: const Color(0xff2A4BA0),
-                      height: 1.6,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: CustomFontFamily.regular,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: CircleAvatar(
-                        backgroundColor: AllColors.primarycolor,
-                        radius: 14,
-                        child: Icon(Icons.add)),
-                  ),
-                ]),
+                ),
+                SizedBox(
+                  height: 15,
+                )
               ],
             ),
           ),

@@ -37,8 +37,8 @@ class _FruitsScreenState extends State<FruitsScreen> {
                 // count: fruit_products[index]["count"],
                 // favbool: fruit_products[index]["favourite"],
               ),
-            const SizedBox(
-              height: 90,
+            Container(
+              height: MediaQuery.of(context).size.height * 0.11,
             )
           ],
         ),

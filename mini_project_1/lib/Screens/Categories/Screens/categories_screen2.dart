@@ -90,9 +90,8 @@ class _CategoriesScreen2State extends State<CategoriesScreen2> {
                         for (var elements in lables) {
                           elements.isSelected = false;
                         }
-                        setState(() {
-                          lables[value].isSelected = true;
-                        });
+                        lables[value].isSelected = true;
+                        setState(() {});
                       },
                       controller: _controllerCategory,
                       children: const [

@@ -39,8 +39,8 @@ class _VegetablesScreenState extends State<VegetablesScreen> {
                 // count: veg_products[index]["count"],
                 // favbool: veg_products[index]["favourite"],
               ),
-            const SizedBox(
-              height: 90,
+            Container(
+              height: MediaQuery.of(context).size.height * 0.11,
             )
           ],
         ),
@@ -63,7 +63,7 @@ List<Map<String, dynamic>> veg_products = [
     "title": "Corn.",
     "subtitle": "Freshly harvest",
     "price": 3.99,
-    "weight": "Dazan",
+    "weight": "KG",
     "image": "assets/images/corn.jpeg",
     "favourite": false,
     "count": 0

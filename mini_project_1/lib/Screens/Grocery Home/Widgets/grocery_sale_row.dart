@@ -22,7 +22,7 @@ class GrocerySaleRow extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                       image: const DecorationImage(
                           image:
-                              AssetImage("assets/images/shopping-50-off.jpg"),
+                              AssetImage("assets/images/shopping-50-off4.jpg"),
                           fit: BoxFit.cover),
                       boxShadow: const [
                         BoxShadow(
