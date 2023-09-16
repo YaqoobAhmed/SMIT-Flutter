@@ -1,37 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
-List<Product> productData = [];
-
-class CategoryBox extends StatefulWidget {
-  final String title, subtitle, description, weight;
+class CategoryBox extends StatelessWidget {
+  final String title, subtitle, weight;
   final num price;
   final String image;
-  const CategoryBox({
+  final bool isFavourited;
+  final Function()? onPressed_fav;
+  final Function()? onPressed_cart;
+  CategoryBox({
     super.key,
     required this.title,
     required this.subtitle,
-    required this.description,
     required this.price,
     required this.weight,
     required this.image,
+    required this.isFavourited,
+    this.onPressed_fav,
+    this.onPressed_cart,
   });
-
-  @override
-  State<CategoryBox> createState() => _CategoryBoxState();
-}
-
-class _CategoryBoxState extends State<CategoryBox> {
-  bool _isFavourited = false;
-
-  void _toggleFavourite() {
-    if (_isFavourited) {
-      _isFavourited = false;
-    } else {
-      _isFavourited = true;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +33,7 @@ class _CategoryBoxState extends State<CategoryBox> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(
-                    image: AssetImage(widget.image), fit: BoxFit.cover)),
+                    image: AssetImage(image), fit: BoxFit.cover)),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
@@ -54,7 +41,7 @@ class _CategoryBoxState extends State<CategoryBox> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.title,
+                  title,
                   style: TextStyle(
                     color: AllColors.BottonTextColor,
                     fontSize: 18,
@@ -63,7 +50,7 @@ class _CategoryBoxState extends State<CategoryBox> {
                   ),
                 ),
                 Text(
-                  widget.subtitle,
+                  subtitle,
                   style: const TextStyle(
                     color: Color(0xff616A7D),
                     fontSize: 16,
@@ -76,16 +63,12 @@ class _CategoryBoxState extends State<CategoryBox> {
                 ),
                 Wrap(children: [
                   IconButton(
-                    onPressed: () {
-                      setState(() {
-                        _toggleFavourite();
-                      });
-                    },
-                    icon: _isFavourited
+                    onPressed: onPressed_fav,
+                    icon: isFavourited
                         ? Icon(Icons.favorite)
                         : Icon(Icons.favorite_border),
                     color:
-                        _isFavourited ? AllColors.secondPrimary : Colors.black,
+                        isFavourited ? AllColors.secondPrimary : Colors.black,
                   ),
                   SizedBox(
                     width: 60,
@@ -103,7 +86,7 @@ class _CategoryBoxState extends State<CategoryBox> {
                 Row(
                   children: [
                     Text(
-                      "\$ ${widget.price}",
+                      "\$ $price",
                       style: TextStyle(
                         color: const Color(0xff2A4BA0),
                         fontSize: 16,
@@ -112,7 +95,7 @@ class _CategoryBoxState extends State<CategoryBox> {
                       ),
                     ),
                     Text(
-                      "/${widget.weight}",
+                      "/$weight",
                       style: TextStyle(
                         color: const Color(0xff2A4BA0),
                         fontSize: 16,

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/category_box.dart';
+import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
 
-class FishAndMeatScreen extends StatelessWidget {
+class FishAndMeatScreen extends StatefulWidget {
   const FishAndMeatScreen({super.key});
 
+  @override
+  State<FishAndMeatScreen> createState() => _FishAndMeatScreenState();
+}
+
+class _FishAndMeatScreenState extends State<FishAndMeatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,10 +20,21 @@ class FishAndMeatScreen extends StatelessWidget {
               CategoryBox(
                 title: fishNmeat_products[index]["title"],
                 subtitle: fishNmeat_products[index]["subtitle"],
-                description: fishNmeat_products[index]["description"],
+
                 price: fishNmeat_products[index]["price"],
                 weight: fishNmeat_products[index]["weight"],
                 image: fishNmeat_products[index]["image"],
+                isFavourited: fishNmeat_products[index]["favourite"],
+                onPressed_fav: () {
+                  fishNmeat_products[index]["favourite"] =
+                      !fishNmeat_products[index]["favourite"];
+                  if (fishNmeat_products[index]["favourite"]) {
+                    favData.add(fishNmeat_products[index]);
+                  } else {
+                    favData.remove(fishNmeat_products[index]);
+                  }
+                  setState(() {});
+                },
                 // count: fishNmeat_products[index]["count"],
                 // favbool: fishNmeat_products[index]["favourite"],
               ),
@@ -35,7 +52,6 @@ List<Map<String, dynamic>> fishNmeat_products = [
   {
     "title": "Big & Small fishes",
     "subtitle": "Fresh from sea",
-    "description": "Starting from",
     "price": 35,
     "weight": "KG",
     'image': "assets/images/fish.jpg",
@@ -45,7 +61,6 @@ List<Map<String, dynamic>> fishNmeat_products = [
   {
     "title": "Halal Beef Meats",
     "subtitle": "Organics & Fresh",
-    "description": "Starting from",
     "price": 90,
     "weight": "KG",
     "image": "assets/images/meat.jpeg",
@@ -55,7 +70,6 @@ List<Map<String, dynamic>> fishNmeat_products = [
   {
     "title": "Nuggets",
     "subtitle": "Halal & Fresh",
-    "description": "Starting from",
     "price": 24,
     "weight": "KG",
     "image": "assets/images/nuggets.jpeg",

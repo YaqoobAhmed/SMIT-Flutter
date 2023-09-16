@@ -1,36 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/category_box.dart';
+import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
 
-class FruitsScreen extends StatelessWidget {
+class FruitsScreen extends StatefulWidget {
   const FruitsScreen({super.key});
 
+  @override
+  State<FruitsScreen> createState() => _FruitsScreenState();
+}
+
+class _FruitsScreenState extends State<FruitsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Expanded(
-              flex: 0,
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: fruit_products.length,
-                itemBuilder: (context, index) => CategoryBox(
-                  title: fruit_products[index]["title"],
-                  subtitle: fruit_products[index]["subtitle"],
-                  description: fruit_products[index]["description"],
-                  price: fruit_products[index]["price"],
-                  weight: fruit_products[index]["weight"],
-                  image: fruit_products[index]["image"],
-                  // count: fruit_products[index]["count"],
-                  // favbool: fruit_products[index]["favourite"],
-                ),
+            for (int index = 0; index < fruit_products.length; index++)
+              CategoryBox(
+                title: fruit_products[index]["title"],
+                subtitle: fruit_products[index]["subtitle"],
+                price: fruit_products[index]["price"],
+                weight: fruit_products[index]["weight"],
+                image: fruit_products[index]["image"],
+                isFavourited: fruit_products[index]["favourite"],
+                onPressed_fav: () {
+                  fruit_products[index]["favourite"] =
+                      !fruit_products[index]["favourite"];
+                  if (fruit_products[index]["favourite"]) {
+                    favData.add(fruit_products[index]);
+                  } else {
+                    favData.remove(fruit_products[index]);
+                  }
+                  setState(() {});
+                },
+                // count: fruit_products[index]["count"],
+                // favbool: fruit_products[index]["favourite"],
               ),
-            ),
             const SizedBox(
-              height: 20,
+              height: 90,
             )
           ],
         ),
@@ -43,7 +51,6 @@ List<Map<String, dynamic>> fruit_products = [
   {
     "title": "Banana",
     "subtitle": "Fresh from Villages",
-    "description": "Starting from",
     "price": 4.75,
     "weight": "Dazan",
     "image": "assets/images/banana.jpeg",
@@ -53,7 +60,6 @@ List<Map<String, dynamic>> fruit_products = [
   {
     "title": "WaterMelon",
     "subtitle": "Stored",
-    "description": "Starting from",
     "price": 7.49,
     "weight": "KG",
     "image": "assets/images/watermellon.jpeg",
@@ -63,7 +69,6 @@ List<Map<String, dynamic>> fruit_products = [
   {
     "title": "Apple",
     "subtitle": "Fresh from Villages",
-    "description": "Starting from",
     "price": 5.29,
     "weight": "KG",
     "image": "assets/images/apple.jpeg",
