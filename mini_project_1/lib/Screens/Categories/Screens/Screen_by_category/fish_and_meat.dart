@@ -35,6 +35,17 @@ class _FishAndMeatScreenState extends State<FishAndMeatScreen> {
                   }
                   setState(() {});
                 },
+                onPressed_cart: () {
+                  setState(() {
+                    if (fishNmeat_products[index]["count"] == 0) {
+                      fishNmeat_products[index]["count"] += 1;
+                      cartData.add(fishNmeat_products[index]);
+                    } else {
+                      cartData[index]["count"] += 1;
+                    }
+                    print(cartData);
+                  });
+                },
                 // count: fishNmeat_products[index]["count"],
                 // favbool: fishNmeat_products[index]["favourite"],
               ),

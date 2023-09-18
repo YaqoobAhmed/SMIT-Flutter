@@ -87,7 +87,7 @@ class FavouriteBox extends StatelessWidget {
                         )
                       ])),
                       InkWell(
-                        onTap: () {},
+                        onTap: onPressed_cart,
                         child: CircleAvatar(
                             backgroundColor: AllColors.primarycolor,
                             radius: 14,

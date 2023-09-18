@@ -21,7 +21,6 @@ class _VegetablesScreenState extends State<VegetablesScreen> {
               CategoryBox(
                 title: veg_products[index]["title"],
                 subtitle: veg_products[index]["subtitle"],
-
                 price: veg_products[index]["price"],
                 weight: veg_products[index]["weight"],
                 image: veg_products[index]["image"],
@@ -36,8 +35,16 @@ class _VegetablesScreenState extends State<VegetablesScreen> {
                   }
                   setState(() {});
                 },
-                // count: veg_products[index]["count"],
-                // favbool: veg_products[index]["favourite"],
+                onPressed_cart: () {
+                  setState(() {
+                    if (veg_products[index]["count"] == 0) {
+                      veg_products[index]["count"] += 1;
+                      cartData.add(veg_products[index]);
+                    } else {
+                      cartData[index]["count"] += 1;
+                    }
+                  });
+                },
               ),
             Container(
               height: MediaQuery.of(context).size.height * 0.11,

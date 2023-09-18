@@ -49,10 +49,9 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.025,
               ),
-              for (int index = 1; index < favData.length; index++)
+              for (int index = 0; index < favData.length; index++)
                 FavouriteBox(
                   title: favData[index]["title"],
-
                   price: favData[index]["price"],
                   weight: favData[index]["weight"],
                   image: favData[index]["image"],
@@ -62,10 +61,12 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                     favData.remove(favData[index]);
                     setState(() {});
                   },
-                  // count: fruit_products[index]["count"],
-                  // favbool: fruit_products[index]["favourite"],
+                  onPressed_cart: () {
+                    cartData[index]["count"] + 1;
+                    setState(() {});
+                  },
                 ),
-              if (favData.length < 2)
+              if (favData.length < 1)
                 Center(
                     child: Container(
                         height: MediaQuery.of(context).size.height * 0.8,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/searchbar.dart';
+import 'package:mini_project_1/Screens/Shopping%20Cart/Screens/cart_screen.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class GroceryBanner extends StatelessWidget {
@@ -34,16 +35,26 @@ class GroceryBanner extends StatelessWidget {
                       fontFamily: "Manrope",
                     ),
                   ),
-                  Icon(
-                    Icons.shopping_bag_outlined,
-                    color: AllColors.HeadingTextColor,
-                    size: 25,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CartScreen(),
+                          ));
+                    },
+                    child: Icon(
+                      Icons.shopping_bag_outlined,
+                      color: AllColors.HeadingTextColor,
+                      size: 25,
+                    ),
                   )
                 ],
               ),
             ),
           ),
-          const Positioned(top: 100, left: 20, right: 20, child: GrocerySearchbar()),
+          const Positioned(
+              top: 100, left: 20, right: 20, child: GrocerySearchbar()),
           Positioned(
             top: 180,
             left: 20,

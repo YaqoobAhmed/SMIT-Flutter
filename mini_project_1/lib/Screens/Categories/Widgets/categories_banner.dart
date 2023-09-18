@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project_1/Screens/Shopping%20Cart/Screens/cart_screen.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class CategoriesBanner extends StatefulWidget {
@@ -24,6 +25,7 @@ class _CategoriesBannerState extends State<CategoriesBanner> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Hey, Yaqoob",
@@ -34,26 +36,33 @@ class _CategoriesBannerState extends State<CategoriesBanner> {
                     fontFamily: "Manrope",
                   ),
                 ),
-                const Spacer(),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.search,
-                    color: Color(0xffF8F9FB),
-                    size: 28,
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.shopping_bag_outlined,
-                    color: Color(0xffF8F9FB),
-                    size: 28,
-                  ),
-                ),
+                Wrap(
+                  spacing: 20,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Icon(
+                        Icons.search,
+                        color: Color(0xffF8F9FB),
+                        size: 28,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CartScreen(),
+                            ));
+                      },
+                      child: Icon(
+                        Icons.shopping_bag_outlined,
+                        color: AllColors.HeadingTextColor,
+                        size: 25,
+                      ),
+                    )
+                  ],
+                )
               ],
             ),
             const SizedBox(

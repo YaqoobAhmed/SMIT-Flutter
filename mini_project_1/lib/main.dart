@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project_1/Screens/Shopping%20Cart/Screens/cart_screen.dart';
 import 'package:mini_project_1/Screens/Splash/splash_screen.dart';
 
 void main(List<String> args) {
@@ -18,7 +19,7 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       title: "Mini Project",
       home: SplashScreen(),
-      //home: AllCategories(),
+      //home: CartScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

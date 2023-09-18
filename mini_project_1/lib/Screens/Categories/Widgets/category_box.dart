@@ -74,7 +74,7 @@ class CategoryBox extends StatelessWidget {
                     width: 60,
                   ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: onPressed_cart,
                       icon: CircleAvatar(
                           backgroundColor: AllColors.primarycolor,
                           radius: 14,

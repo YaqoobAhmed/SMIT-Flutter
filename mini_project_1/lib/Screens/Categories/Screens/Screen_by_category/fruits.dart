@@ -34,6 +34,17 @@ class _FruitsScreenState extends State<FruitsScreen> {
                   }
                   setState(() {});
                 },
+                onPressed_cart: () {
+                  setState(() {
+                    if (fruit_products[index]["count"] == 0) {
+                      fruit_products[index]["count"] += 1;
+                      cartData.add(fruit_products[index]);
+                    } else {
+                      cartData[index]["count"] += 1;
+                    }
+                    print(cartData);
+                  });
+                },
                 // count: fruit_products[index]["count"],
                 // favbool: fruit_products[index]["favourite"],
               ),

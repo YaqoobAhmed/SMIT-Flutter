@@ -86,12 +86,15 @@ class _CategoriesScreen2State extends State<CategoriesScreen2> {
                     width: MediaQuery.of(context).size.width * 1,
                     color: Colors.black,
                     child: PageView(
+                      padEnds: false,
                       onPageChanged: (value) {
                         for (var elements in lables) {
                           elements.isSelected = false;
                         }
-                        lables[value].isSelected = true;
-                        setState(() {});
+
+                        setState(() {
+                          lables[value].isSelected = true;
+                        });
                       },
                       controller: _controllerCategory,
                       children: const [

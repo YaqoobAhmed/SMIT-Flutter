@@ -15,6 +15,6 @@ class Product {
 }
 
 int favDataIndex = 0;
-List<Map<String, dynamic>> favData = [{}];
+List<Map<String, dynamic>> favData = [];
 
-List<Map<String, dynamic>> cartData = [{}];
+List<Map<String, dynamic>> cartData = [];
