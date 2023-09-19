@@ -60,6 +60,7 @@ class _CartScreenState extends State<CartScreen> {
                             cartData[index]["count"] -= 1;
                             if (cartData[index]["count"] == 0) {
                               cartData.removeAt(index);
+                              setState(() {});
                             }
                             setState(() {});
                           },

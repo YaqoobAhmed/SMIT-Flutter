@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
 import 'package:mini_project_1/Screens/Shopping%20Cart/Screens/cart_screen.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
@@ -37,6 +38,7 @@ class _CategoriesBannerState extends State<CategoriesBanner> {
                   ),
                 ),
                 Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.end,
                   spacing: 20,
                   children: [
                     GestureDetector(
@@ -44,7 +46,7 @@ class _CategoriesBannerState extends State<CategoriesBanner> {
                       child: const Icon(
                         Icons.search,
                         color: Color(0xffF8F9FB),
-                        size: 28,
+                        size: 33,
                       ),
                     ),
                     GestureDetector(
@@ -55,11 +57,28 @@ class _CategoriesBannerState extends State<CategoriesBanner> {
                               builder: (context) => CartScreen(),
                             ));
                       },
-                      child: Icon(
-                        Icons.shopping_bag_outlined,
-                        color: AllColors.HeadingTextColor,
-                        size: 25,
-                      ),
+                      child: Stack(children: [
+                        Container(
+                          child: Icon(
+                            Icons.shopping_bag_outlined,
+                            color: AllColors.HeadingTextColor,
+                            size: 33,
+                          ),
+                        ),
+                        if (cartData.isNotEmpty)
+                          Positioned(
+                            right: 0,
+                            child: CircleAvatar(
+                              radius: 10,
+                              backgroundColor: AllColors.secondPrimary,
+                              child: Text(
+                                "${cartData.length}",
+                                style: TextStyle(
+                                    color: AllColors.ButtonBackgroundColor),
+                              ),
+                            ),
+                          ),
+                      ]),
                     )
                   ],
                 )

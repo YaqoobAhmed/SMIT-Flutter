@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/searchbar.dart';
 import 'package:mini_project_1/Screens/Shopping%20Cart/Screens/cart_screen.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
@@ -21,7 +22,7 @@ class GroceryBanner extends StatelessWidget {
                 color: AllColors.primarycolor),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 52, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 50.5, horizontal: 20),
             child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,11 +44,28 @@ class GroceryBanner extends StatelessWidget {
                             builder: (context) => CartScreen(),
                           ));
                     },
-                    child: Icon(
-                      Icons.shopping_bag_outlined,
-                      color: AllColors.HeadingTextColor,
-                      size: 25,
-                    ),
+                    child: Stack(children: [
+                      Container(
+                        child: Icon(
+                          Icons.shopping_bag_outlined,
+                          color: AllColors.HeadingTextColor,
+                          size: 33,
+                        ),
+                      ),
+                      if (cartData.isNotEmpty)
+                        Positioned(
+                          right: 0,
+                          child: CircleAvatar(
+                            radius: 10,
+                            backgroundColor: AllColors.secondPrimary,
+                            child: Text(
+                              cartData.length.toString(),
+                              style: TextStyle(
+                                  color: AllColors.ButtonBackgroundColor),
+                            ),
+                          ),
+                        ),
+                    ]),
                   )
                 ],
               ),
