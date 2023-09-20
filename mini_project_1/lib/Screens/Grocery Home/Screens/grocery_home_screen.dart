@@ -118,7 +118,8 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 20),
                     child: GridView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
@@ -167,7 +168,20 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                                   bottom: 0,
                                   right: 10,
                                   child: GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      setState(() {
+                                        if (deals_on_fruitNtea[index]
+                                                ["count"] ==
+                                            0) {
+                                          deals_on_fruitNtea[index]["count"] +=
+                                              1;
+                                          cartData
+                                              .add(deals_on_fruitNtea[index]);
+                                        } else {
+                                          cartData[index]["count"] += 1;
+                                        }
+                                      });
+                                    },
                                     child: CircleAvatar(
                                       backgroundColor: AllColors.primarycolor,
                                       radius: 14,
@@ -212,6 +226,9 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
               ),
             ),
           ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.025,
+          )
         ],
       ),
     );
