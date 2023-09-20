@@ -62,8 +62,14 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                     setState(() {});
                   },
                   onPressed_cart: () {
-                    cartData[index]["count"] + 1;
-                    setState(() {});
+                    setState(() {
+                      if (favData[index]["count"] == 0) {
+                        favData[index]["count"] += 1;
+                        cartData.add(favData[index]);
+                      } else {
+                        cartData[index]["count"] += 1;
+                      }
+                    });
                   },
                 ),
               if (favData.length < 1)
