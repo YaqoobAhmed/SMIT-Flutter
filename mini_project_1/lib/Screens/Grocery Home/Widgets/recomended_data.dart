@@ -1,27 +1,31 @@
-List<Map<String, dynamic>> redomended_data = [
+List<Map<String, dynamic>> recommended_data = [
   {
     "title": "Lemonade",
     "subtitle": "Organic",
-    "price": 15,
-    "image": "assets/images/lemonade.jpeg"
+    "price": 15.0,
+    "image": "assets/images/lemonade.jpeg",
+    "count": 0
   },
   {
     "title": "Bread",
     "subtitle": "Fresh",
-    "price": 25,
-    "image": "assets/images/bread.jpg"
+    "price": 25.0,
+    "image": "assets/images/bread.jpg",
+    "count": 0
   },
   {
     "title": "Eggs",
     "subtitle": "Organic",
     "price": 34.99,
-    "image": "assets/images/eggs.jpeg"
+    "image": "assets/images/eggs.jpeg",
+    "count": 0
   },
   {
     "title": "Milk",
     "subtitle": "Dairy Fresh",
-    "price": 30,
-    "image": "assets/images/milk.jpg"
+    "price": 30.0,
+    "image": "assets/images/milk.jpg",
+    "count": 0
   },
 ];
 
@@ -29,21 +33,25 @@ List<Map<String, dynamic>> deals_on_fruitNtea = [
   {
     "subtitle": "Mengo peti 1",
     "price": 342,
-    "image": "assets/images/mangonew.jpeg"
+    "image": "assets/images/mangonew.jpeg",
+    "count": 0
   },
   {
     "subtitle": "Mix Tea 3 Packs",
     "price": 147,
-    "image": "assets/images/tea.jpeg"
+    "image": "assets/images/tea.jpeg",
+    "count": 0
   },
   {
     "subtitle": "3 dazan Bnana",
     "price": 99.99,
-    "image": "assets/images/banana.jpeg"
+    "image": "assets/images/banana.jpeg",
+    "count": 0
   },
   {
     "subtitle": "2 packs of tea with tea whitener",
     "price": 129.9,
-    "image": "assets/images/teamilk.jpeg"
+    "image": "assets/images/teamilk.jpeg",
+    "count": 0
   },
 ];

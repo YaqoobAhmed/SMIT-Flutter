@@ -20,7 +20,6 @@ class _FishAndMeatScreenState extends State<FishAndMeatScreen> {
               CategoryBox(
                 title: fishNmeat_products[index]["title"],
                 subtitle: fishNmeat_products[index]["subtitle"],
-
                 price: fishNmeat_products[index]["price"],
                 weight: fishNmeat_products[index]["weight"],
                 image: fishNmeat_products[index]["image"],
@@ -43,11 +42,8 @@ class _FishAndMeatScreenState extends State<FishAndMeatScreen> {
                     } else {
                       cartData[index]["count"] += 1;
                     }
-                    print(cartData);
                   });
                 },
-                // count: fishNmeat_products[index]["count"],
-                // favbool: fishNmeat_products[index]["favourite"],
               ),
             Container(
               height: MediaQuery.of(context).size.height * 0.11,

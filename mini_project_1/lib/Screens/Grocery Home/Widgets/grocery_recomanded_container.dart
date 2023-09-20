@@ -1,12 +1,22 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/recomended_data.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class GroceryRecomendedContainer extends StatelessWidget {
-  final index;
-  GroceryRecomendedContainer({super.key, required this.index});
+  final String image, title, subtitle;
+  final double price;
+  final int count;
+  final Function()? onTap;
+  GroceryRecomendedContainer({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.subtitle,
+    required this.price,
+    required this.count,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +42,7 @@ class GroceryRecomendedContainer extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.12,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(redomended_data[index]['image']),
-                      fit: BoxFit.cover),
+                      image: AssetImage(image), fit: BoxFit.cover),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20)),
@@ -41,8 +50,8 @@ class GroceryRecomendedContainer extends StatelessWidget {
             SizedBox(
               height: 65,
               child: ListTile(
-                title: Text(redomended_data[index]['title']),
-                subtitle: Text(redomended_data[index]['subtitle']),
+                title: Text(title),
+                subtitle: Text(subtitle),
               ),
             ),
             Container(
@@ -54,10 +63,10 @@ class GroceryRecomendedContainer extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text("\$${redomended_data[index]['price']}"),
+                    Text(price.toString()),
                     Spacer(),
                     GestureDetector(
-                        onTap: () {},
+                        onTap: onTap,
                         child: CircleAvatar(
                             backgroundColor: AllColors.primarycolor,
                             radius: 14,

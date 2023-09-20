@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/grocery_banner.dart';
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/grocery_recomanded_container.dart';
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/grocery_sale_row.dart';
@@ -6,9 +7,14 @@ import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/grocery_savings.da
 import 'package:mini_project_1/Screens/Grocery%20Home/Widgets/recomended_data.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
-class GroceryHomeScreen extends StatelessWidget {
+class GroceryHomeScreen extends StatefulWidget {
   const GroceryHomeScreen({super.key});
 
+  @override
+  State<GroceryHomeScreen> createState() => _GroceryHomeScreenState();
+}
+
+class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,13 +42,28 @@ class GroceryHomeScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Padding(
                       padding: const EdgeInsets.all(20),
-                      child: Row(
-                        children: List.generate(
-                            redomended_data.length,
-                            (index) => GroceryRecomendedContainer(
-                                  index: index,
-                                )),
-                      ),
+                      child: Row(children: [
+                        for (int index = 0;
+                            index < recommended_data.length;
+                            index++)
+                          GroceryRecomendedContainer(
+                            image: recommended_data[index]['image'],
+                            title: recommended_data[index]['title'],
+                            subtitle: recommended_data[index]['subtitle'],
+                            price: recommended_data[index]['price'],
+                            count: recommended_data[index]['count'],
+                            onTap: () {
+                              setState(() {
+                                if (recommended_data[index]["count"] == 0) {
+                                  recommended_data[index]["count"] += 1;
+                                  cartData.add(recommended_data[index]);
+                                } else {
+                                  cartData[index]["count"] += 1;
+                                }
+                              });
+                            },
+                          ),
+                      ]),
                     ),
                   ),
                   Stack(
