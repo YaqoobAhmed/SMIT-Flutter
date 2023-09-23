@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
+import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 import '../../Widgets/category_box.dart';
 
@@ -38,9 +39,31 @@ class _VegetablesScreenState extends State<VegetablesScreen> {
                 onPressed_cart: () {
                   setState(() {
                     if (veg_products[index]["count"] == 0) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        duration: Duration(seconds: 2),
+                        backgroundColor: AllColors.secondPrimary,
+                        behavior: SnackBarBehavior.floating,
+                        content: Text("Item Added to Cart"),
+                        action: SnackBarAction(
+                            label: "Undo",
+                            onPressed: () {
+                              cartData.remove(veg_products[index]);
+                            }),
+                      ));
                       veg_products[index]["count"] += 1;
                       cartData.add(veg_products[index]);
                     } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: AllColors.secondPrimary,
+                        duration: Duration(seconds: 2),
+                        behavior: SnackBarBehavior.floating,
+                        content: Text("Added one more"),
+                        action: SnackBarAction(
+                            label: "Undo",
+                            onPressed: () {
+                              cartData[index]["count"] -= 1;
+                            }),
+                      ));
                       cartData[index]["count"] += 1;
                     }
                   });

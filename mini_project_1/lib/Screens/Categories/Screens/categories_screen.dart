@@ -1,114 +1,113 @@
-// import 'package:flutter/material.dart';
-// import 'package:mini_project_1/Screens/Categories/Screens/categories_screen2.dart';
-// import 'package:mini_project_1/Screens/Categories/Widgets/categories_banner.dart';
-// import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
+import 'package:flutter/material.dart';
+import 'package:mini_project_1/Screens/Categories/Screens/Screen_by_category/fish_and_meat.dart';
+import 'package:mini_project_1/Screens/Categories/Screens/Screen_by_category/fruits.dart';
+import 'package:mini_project_1/Screens/Categories/Screens/Screen_by_category/vegetables.dart';
+import 'package:mini_project_1/Screens/Categories/Widgets/categories_banner.dart';
+import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
+import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
-// List<Map<String, dynamic>> cat_list = [
-//   {"title": "Fish", "subtitle": "From Sea", "image": "assets/images/fish.jpg"},
-//   {"title": "Meat", "subtitle": "Organic", "image": "assets/images/meat.jpeg"},
-//   {
-//     "title": "Vegetables",
-//     "subtitle": "Organic",
-//     "image": "assets/images/veg.jpg"
-//   },
-//   {
-//     "title": "Fruits",
-//     "subtitle": "Fresh & Organic",
-//     "image": "assets/images/fruit.jpg"
-//   }
-// ];
+List<Itemdata> lables = [
+  Itemdata(itemdata: "Fish & Meat"),
+  Itemdata(itemdata: "Vegetables"),
+  Itemdata(itemdata: "Fruits")
+];
 
-// class CategoriesScreen extends StatelessWidget {
-//   const CategoriesScreen({super.key});
+class CategoriesScreen extends StatefulWidget {
+  const CategoriesScreen({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(
-//         child: Column(
-//           children: [
-//             const Expanded(
-//               flex: 0,
-//               child: CategoriesBanner(),
-//             ),
-//             Expanded(
-//                 child: GridView.builder(
-//                     shrinkWrap: true,
-//                     itemCount: cat_list.length,
-//                     gridDelegate:
-//                         const SliverGridDelegateWithFixedCrossAxisCount(
-//                       childAspectRatio: 0.9,
-//                       crossAxisCount: 2,
-//                     ),
-//                     itemBuilder: (context, index) => Padding(
-//                           padding: const EdgeInsets.all(15.0),
-//                           child: GestureDetector(
-//                             onTap: () {
-//                               Navigator.push(
-//                                   context,
-//                                   MaterialPageRoute(
-//                                       builder: (context) =>
-//                                           CategoriesScreen2()));
-//                             },
-//                             child: Container(
-//                               height: 194,
-//                               width: 164,
-//                               decoration: BoxDecoration(
-//                                   borderRadius: BorderRadius.circular(16),
-//                                   color: Colors.white,
-//                                   border: Border.all(
-//                                       width: 0.3, color: Colors.grey),
-//                                   boxShadow: const [
-//                                     BoxShadow(
-//                                         color: Colors.grey,
-//                                         spreadRadius: 0.5,
-//                                         blurRadius: 5,
-//                                         offset: Offset(-2, 3))
-//                                   ]),
-//                               child: Column(
-//                                 crossAxisAlignment: CrossAxisAlignment.center,
-//                                 children: [
-//                                   Container(
-//                                     height: MediaQuery.of(context).size.height *
-//                                         0.13,
-//                                     decoration: BoxDecoration(
-//                                         borderRadius: const BorderRadius.only(
-//                                             topLeft: Radius.circular(16),
-//                                             topRight: Radius.circular(16)),
-//                                         image: DecorationImage(
-//                                             image: AssetImage(
-//                                                 cat_list[index]["image"]),
-//                                             fit: BoxFit.cover)),
-//                                   ),
-//                                   const SizedBox(
-//                                     height: 25,
-//                                   ),
-//                                   Text(
-//                                     cat_list[index]["title"],
-//                                     style: TextStyle(
-//                                       color: AllColors.BottonTextColor,
-//                                       fontSize: 16,
-//                                       fontWeight: FontWeight.w600,
-//                                       fontFamily: "Manrope",
-//                                     ),
-//                                   ),
-//                                   Text(
-//                                     cat_list[index]["subtitle"],
-//                                     style: TextStyle(
-//                                       color: AllColors.BottonTextColor,
-//                                       fontSize: 14,
-//                                       fontWeight: FontWeight.w400,
-//                                       fontFamily: "Manrope",
-//                                     ),
-//                                   ),
-//                                 ],
-//                               ),
-//                             ),
-//                           ),
-//                         ))),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  State<CategoriesScreen> createState() => _CategoriesScreen2State();
+}
+
+class _CategoriesScreen2State extends State<CategoriesScreen> {
+  final _controllerCategory = PageController(initialPage: 0);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          const Expanded(flex: 0, child: CategoriesBanner()),
+          Expanded(
+              child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        height: 36,
+                        width: 300,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: lables.length,
+                          itemBuilder: (context, index) => Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: GestureDetector(
+                              onTap: () {
+                                _controllerCategory.jumpToPage(index);
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: lables[index].isSelected == true
+                                        ? AllColors.secondPrimary
+                                        : Colors.white,
+                                    border: Border.all(
+                                        width: 1,
+                                        color: const Color(0xffB2BBCE))),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Center(
+                                      child: Text(
+                                    lables[index].itemdata,
+                                    style: TextStyle(
+                                      color: lables[index].isSelected == true
+                                          ? Colors.white
+                                          : const Color(0xff616A7D),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: CustomFontFamily.semibold,
+                                    ),
+                                  )),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                    height: MediaQuery.of(context).size.height * 0.615,
+                    width: MediaQuery.of(context).size.width * 1,
+                    color: Colors.black,
+                    child: PageView(
+                      padEnds: false,
+                      onPageChanged: (value) {
+                        for (var elements in lables) {
+                          elements.isSelected = false;
+                        }
+
+                        setState(() {
+                          lables[value].isSelected = true;
+                        });
+                      },
+                      controller: _controllerCategory,
+                      children: const [
+                        FishAndMeatScreen(),
+                        VegetablesScreen(),
+                        FruitsScreen()
+                      ],
+                    )),
+              ],
+            ),
+          ))
+        ],
+      ),
+    );
+  }
+}

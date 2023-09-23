@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
-import 'package:mini_project_1/Screens/Categories/Screens/categories_screen2.dart';
+import 'package:mini_project_1/Screens/Categories/Screens/categories_screen.dart';
 import 'package:mini_project_1/Screens/Favourites/Screens/favourite_screen.dart';
 import 'package:mini_project_1/Screens/Grocery%20Home/Screens/grocery_home_screen.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
@@ -22,7 +22,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final tabs = [
     const GroceryHomeScreen(),
-    const CategoriesScreen2(),
+    const CategoriesScreen(),
     const FavouriteScreen(),
     const MoreScreen()
   ];

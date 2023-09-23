@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
+import 'package:mini_project_1/Screens/Checkout/Screens/checkout_screen.dart';
+import 'package:mini_project_1/Screens/Shopping%20Cart/Widgets/button.dart';
 import 'package:mini_project_1/Screens/Shopping%20Cart/Widgets/cart_box.dart';
 import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
@@ -140,23 +142,15 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                       Container(
                           height: MediaQuery.of(context).size.height * 0.06),
-                      Container(
-                        height: 56,
-                        width: 327,
-                        decoration: BoxDecoration(
-                            color: AllColors.primarycolor,
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Align(
-                          child: Text(
-                            "Proceed To Checkout",
-                            style: TextStyle(
-                                color: AllColors.ButtonBackgroundColor,
-                                fontSize: 14,
-                                fontFamily: "Manrope",
-                                fontWeight: FontWeight.w600,
-                                wordSpacing: 2),
-                          ),
-                        ),
+                      CustomCartButton(
+                        text: "Proceed To Checkout",
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CheckoutScreen(),
+                              ));
+                        },
                       )
                     ],
                   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/category_box.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
+import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class FruitsScreen extends StatefulWidget {
   const FruitsScreen({super.key});
@@ -37,12 +38,33 @@ class _FruitsScreenState extends State<FruitsScreen> {
                 onPressed_cart: () {
                   setState(() {
                     if (fruit_products[index]["count"] == 0) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: AllColors.secondPrimary,
+                        duration: Duration(seconds: 1),
+                        behavior: SnackBarBehavior.floating,
+                        content: Text("Item Added to Cart"),
+                        action: SnackBarAction(
+                            label: "Undo",
+                            onPressed: () {
+                              cartData.remove(fruit_products[index]);
+                            }),
+                      ));
                       fruit_products[index]["count"] += 1;
                       cartData.add(fruit_products[index]);
                     } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: AllColors.secondPrimary,
+                        duration: Duration(seconds: 1),
+                        behavior: SnackBarBehavior.floating,
+                        content: Text("Added one more"),
+                        action: SnackBarAction(
+                            label: "Undo",
+                            onPressed: () {
+                              cartData[index]["count"] -= 1;
+                            }),
+                      ));
                       cartData[index]["count"] += 1;
                     }
-                    print(cartData);
                   });
                 },
                 // count: fruit_products[index]["count"],

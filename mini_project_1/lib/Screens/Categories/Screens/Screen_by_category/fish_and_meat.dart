@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/category_box.dart';
 import 'package:mini_project_1/Screens/Categories/Widgets/listdata.dart';
+import 'package:mini_project_1/Screens/Widgets/widgets_classes.dart';
 
 class FishAndMeatScreen extends StatefulWidget {
   const FishAndMeatScreen({super.key});
@@ -37,9 +38,31 @@ class _FishAndMeatScreenState extends State<FishAndMeatScreen> {
                 onPressed_cart: () {
                   setState(() {
                     if (fishNmeat_products[index]["count"] == 0) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: AllColors.secondPrimary,
+                        duration: Duration(seconds: 2),
+                        behavior: SnackBarBehavior.floating,
+                        content: Text("Item Added to Cart"),
+                        action: SnackBarAction(
+                            label: "Undo",
+                            onPressed: () {
+                              cartData.remove(fishNmeat_products[index]);
+                            }),
+                      ));
                       fishNmeat_products[index]["count"] += 1;
                       cartData.add(fishNmeat_products[index]);
                     } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: AllColors.secondPrimary,
+                        duration: Duration(seconds: 2),
+                        behavior: SnackBarBehavior.floating,
+                        content: Text("Added one more"),
+                        action: SnackBarAction(
+                            label: "Undo",
+                            onPressed: () {
+                              cartData[index]["count"] -= 1;
+                            }),
+                      ));
                       cartData[index]["count"] += 1;
                     }
                   });

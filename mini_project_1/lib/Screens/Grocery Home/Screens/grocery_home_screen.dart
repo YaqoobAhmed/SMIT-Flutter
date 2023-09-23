@@ -55,9 +55,34 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                             onTap: () {
                               setState(() {
                                 if (recommended_data[index]["count"] == 0) {
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    backgroundColor: AllColors.secondPrimary,
+                                    duration: Duration(seconds: 2),
+                                    behavior: SnackBarBehavior.floating,
+                                    content: Text("Item Added to Cart"),
+                                    action: SnackBarAction(
+                                        label: "Undo",
+                                        onPressed: () {
+                                          cartData
+                                              .remove(recommended_data[index]);
+                                        }),
+                                  ));
                                   recommended_data[index]["count"] += 1;
                                   cartData.add(recommended_data[index]);
                                 } else {
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                    backgroundColor: AllColors.secondPrimary,
+                                    duration: Duration(seconds: 2),
+                                    behavior: SnackBarBehavior.floating,
+                                    content: Text("Added one more"),
+                                    action: SnackBarAction(
+                                        label: "Undo",
+                                        onPressed: () {
+                                          cartData[index]["count"] -= 1;
+                                        }),
+                                  ));
                                   cartData[index]["count"] += 1;
                                 }
                               });
@@ -173,11 +198,39 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                                         if (deals_on_fruitNtea[index]
                                                 ["count"] ==
                                             0) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                            backgroundColor:
+                                                AllColors.secondPrimary,
+                                            duration: Duration(seconds: 2),
+                                            behavior: SnackBarBehavior.floating,
+                                            content: Text("Item Added to Cart"),
+                                            action: SnackBarAction(
+                                                label: "Undo",
+                                                onPressed: () {
+                                                  cartData.remove(
+                                                      deals_on_fruitNtea[
+                                                          index]);
+                                                }),
+                                          ));
                                           deals_on_fruitNtea[index]["count"] +=
                                               1;
                                           cartData
                                               .add(deals_on_fruitNtea[index]);
                                         } else {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                            backgroundColor:
+                                                AllColors.secondPrimary,
+                                            duration: Duration(seconds: 2),
+                                            behavior: SnackBarBehavior.floating,
+                                            content: Text("Added one more"),
+                                            action: SnackBarAction(
+                                                label: "Undo",
+                                                onPressed: () {
+                                                  cartData[index]["count"] -= 1;
+                                                }),
+                                          ));
                                           cartData[index]["count"] += 1;
                                         }
                                       });

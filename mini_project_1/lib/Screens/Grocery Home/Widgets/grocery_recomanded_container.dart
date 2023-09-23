@@ -56,7 +56,7 @@ class GroceryRecomendedContainer extends StatelessWidget {
             ),
             Container(
               child: Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15),
+                padding: const EdgeInsets.only(left: 15, right: 15, bottom: 7),
                 child: Row(
                   children: [
                     Text("Unit"),
