@@ -42,6 +42,8 @@ class _VegetablesScreenState extends State<VegetablesScreen> {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         duration: Duration(seconds: 2),
                         backgroundColor: AllColors.secondPrimary,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
                         behavior: SnackBarBehavior.floating,
                         content: Text("Item Added to Cart"),
                         action: SnackBarAction(
@@ -56,6 +58,8 @@ class _VegetablesScreenState extends State<VegetablesScreen> {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         backgroundColor: AllColors.secondPrimary,
                         duration: Duration(seconds: 2),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
                         behavior: SnackBarBehavior.floating,
                         content: Text("Added one more"),
                         action: SnackBarAction(

@@ -42,6 +42,8 @@ class _FruitsScreenState extends State<FruitsScreen> {
                         backgroundColor: AllColors.secondPrimary,
                         duration: Duration(seconds: 1),
                         behavior: SnackBarBehavior.floating,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
                         content: Text("Item Added to Cart"),
                         action: SnackBarAction(
                             label: "Undo",
@@ -56,6 +58,8 @@ class _FruitsScreenState extends State<FruitsScreen> {
                         backgroundColor: AllColors.secondPrimary,
                         duration: Duration(seconds: 1),
                         behavior: SnackBarBehavior.floating,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
                         content: Text("Added one more"),
                         action: SnackBarAction(
                             label: "Undo",

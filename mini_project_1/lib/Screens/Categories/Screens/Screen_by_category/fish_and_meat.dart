@@ -41,6 +41,8 @@ class _FishAndMeatScreenState extends State<FishAndMeatScreen> {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         backgroundColor: AllColors.secondPrimary,
                         duration: Duration(seconds: 2),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
                         behavior: SnackBarBehavior.floating,
                         content: Text("Item Added to Cart"),
                         action: SnackBarAction(
@@ -55,6 +57,8 @@ class _FishAndMeatScreenState extends State<FishAndMeatScreen> {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         backgroundColor: AllColors.secondPrimary,
                         duration: Duration(seconds: 2),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
                         behavior: SnackBarBehavior.floating,
                         content: Text("Added one more"),
                         action: SnackBarAction(

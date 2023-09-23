@@ -204,6 +204,9 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                                                 AllColors.secondPrimary,
                                             duration: Duration(seconds: 2),
                                             behavior: SnackBarBehavior.floating,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(16)),
                                             content: Text("Item Added to Cart"),
                                             action: SnackBarAction(
                                                 label: "Undo",
@@ -224,6 +227,9 @@ class _GroceryHomeScreenState extends State<GroceryHomeScreen> {
                                                 AllColors.secondPrimary,
                                             duration: Duration(seconds: 2),
                                             behavior: SnackBarBehavior.floating,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(16)),
                                             content: Text("Added one more"),
                                             action: SnackBarAction(
                                                 label: "Undo",
