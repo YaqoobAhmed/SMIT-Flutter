@@ -71,8 +71,6 @@ class _FruitsScreenState extends State<FruitsScreen> {
                     }
                   });
                 },
-                // count: fruit_products[index]["count"],
-                // favbool: fruit_products[index]["favourite"],
               ),
             Container(
               height: MediaQuery.of(context).size.height * 0.11,
