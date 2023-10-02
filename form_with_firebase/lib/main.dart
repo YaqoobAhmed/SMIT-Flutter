@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:form_with_firebase/Screens/login_screen/Screen/login_screen.dart';
-import 'package:form_with_firebase/Screens/start_screen/Screen/start_screen.dart';
+import 'package:form_with_firebase/Screens/login/Screen/login_screen.dart';
 import 'package:path_provider/path_provider.dart';
 
 void main() async {
