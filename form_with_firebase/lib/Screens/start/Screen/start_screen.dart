@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:form_with_firebase/Screens/login/Screen/login_screen.dart';
+import 'package:form_with_firebase/Screens/signup/Screen/signup_screen.dart';
 import 'package:form_with_firebase/Screens/start/Widget/start_screen_button.dart';
 import 'package:form_with_firebase/customWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +11,9 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController emialController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -47,6 +53,13 @@ class StartScreen extends StatelessWidget {
               buttonColor: customMaincolor,
               text: "Create an Account",
               textColor: Colors.white,
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignupScreen(),
+                    ));
+              },
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
@@ -55,6 +68,13 @@ class StartScreen extends StatelessWidget {
               buttonColor: Colors.white,
               text: "Login",
               textColor: customMaincolor,
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ));
+              },
             ),
           ],
         ),

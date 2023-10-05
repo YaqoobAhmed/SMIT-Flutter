@@ -3,12 +3,19 @@ import 'package:form_with_firebase/customWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({super.key});
+  final TextEditingController emialController, passwordController;
+  final Function()? onTap;
+
+  LoginButton(
+      {super.key,
+      required this.emialController,
+      required this.passwordController,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         height: 50,
         decoration: BoxDecoration(

@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:form_with_firebase/Screens/Home/Screen/home_screen.dart';
 import 'package:form_with_firebase/Screens/login/Widget/loginbutton.dart';
 import 'package:form_with_firebase/Screens/signup/Screen/signup_screen.dart';
 import 'package:form_with_firebase/customWidget.dart';
@@ -12,7 +14,33 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool obscureText = true;
+  TextEditingController emialController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool obscureText = true, isLogingIn = false;
+  loginUser() async {
+    try {
+      isLogingIn = true;
+      setState(() {});
+
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emialController.text, password: passwordController.text);
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+          ),
+          (route) => false);
+    } on FirebaseAuthException catch (e) {
+      isLogingIn = false;
+      setState(() {});
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,6 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 30,
                           ),
                           TextFormField(
+                            controller: emialController,
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               icon: Icon(Icons.email),
@@ -136,6 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 30,
                           ),
                           TextFormField(
+                            controller: passwordController,
                             obscureText: obscureText,
                             decoration: InputDecoration(
                               suffixIcon: GestureDetector(
@@ -162,35 +192,51 @@ class _LoginScreenState extends State<LoginScreen> {
                           SizedBox(
                             height: 110,
                           ),
-                          LoginButton(),
-                          Center(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 20),
-                              child: Wrap(
-                                spacing: 10,
-                                children: [
-                                  Text(
-                                    "Don't have an Account ?",
-                                    style: GoogleFonts.inriaSerif(
-                                        color: Colors.black, fontSize: 15),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                SignupScreen(),
-                                          ));
-                                    },
-                                    child: Text(
-                                      "SignUp",
+                          new LoginButton(
+                            emialController: emialController,
+                            passwordController: passwordController,
+                            onTap: () {
+                              loginUser();
+                            },
+                          ),
+                          Visibility(
+                              visible: isLogingIn,
+                              child: Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child:
+                                    Center(child: CircularProgressIndicator()),
+                              )),
+                          Visibility(
+                            visible: !isLogingIn,
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 20),
+                                child: Wrap(
+                                  spacing: 10,
+                                  children: [
+                                    Text(
+                                      "Don't have an Account ?",
                                       style: GoogleFonts.inriaSerif(
-                                          color: Colors.blue[900],
-                                          fontSize: 15),
+                                          color: Colors.black, fontSize: 15),
                                     ),
-                                  )
-                                ],
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SignupScreen(),
+                                            ));
+                                      },
+                                      child: Text(
+                                        "SignUp",
+                                        style: GoogleFonts.inriaSerif(
+                                            color: Colors.blue[900],
+                                            fontSize: 15),
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),

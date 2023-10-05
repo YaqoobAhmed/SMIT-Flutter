@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:form_with_firebase/Screens/login/Screen/login_screen.dart';
+import 'package:form_with_firebase/Screens/signup/Widget/signupbutton.dart';
 import 'package:form_with_firebase/customWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,6 +12,8 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  TextEditingController emialController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   bool obscureText = true;
   @override
   Widget build(BuildContext context) {
@@ -41,27 +45,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
                 Positioned(
-                  left: -8,
-                  top: -44,
-                  child: Transform.rotate(
-                    angle: 0.2,
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.23,
-                      width: MediaQuery.of(context).size.width * 1,
-                      decoration: BoxDecoration(
-                          color: customMaincolor,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey,
-                                spreadRadius: 3,
-                                blurRadius: 10)
-                          ],
-                          borderRadius: BorderRadius.circular(80)),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  right: -40,
+                  right: -90,
                   top: -34,
                   child: Transform.rotate(
                     angle: 0.2,
@@ -82,13 +66,42 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
                 Positioned(
-                  top: 50,
-                  right: 140,
+                  left: -8,
+                  top: -44,
+                  child: Transform.rotate(
+                    angle: 0.27,
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.23,
+                      width: MediaQuery.of(context).size.width * 1,
+                      decoration: BoxDecoration(
+                          color: customMaincolor,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                spreadRadius: 3,
+                                blurRadius: 10)
+                          ],
+                          borderRadius: BorderRadius.circular(80)),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 45,
+                  right: 130,
                   child: Text(
-                    "Login",
+                    "Sign up",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.inriaSerif(
-                        fontSize: 40, fontWeight: FontWeight.w400),
+                        fontSize: 40,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                        shadows: [
+                          Shadow(
+                            color: Colors.grey,
+                            blurRadius: 2.0,
+                            offset: Offset(-1.0, 3.0),
+                          ),
+                        ]),
                   ),
                 ),
               ],
@@ -114,13 +127,16 @@ class _SignupScreenState extends State<SignupScreen> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                      ),
                       child: ListView(
                         children: [
                           SizedBox(
-                            height: 40,
+                            height: 10,
                           ),
                           TextFormField(
+                            controller: emialController,
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               icon: Icon(Icons.email),
@@ -131,25 +147,25 @@ class _SignupScreenState extends State<SignupScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: 40,
+                            height: 10,
                           ),
                           TextFormField(
-                            obscureText: obscureText,
+                            keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
-                              suffixIcon: GestureDetector(
-                                onTap: () {
-                                  obscureText = !obscureText;
-                                  setState(() {});
-                                },
-                                child: obscureText
-                                    ? const Icon(
-                                        Icons.visibility_off,
-                                        color: Colors.grey,
-                                      )
-                                    : const Icon(
-                                        Icons.visibility,
-                                      ),
+                              icon: Icon(Icons.phone),
+                              labelText: "Phone",
+                              labelStyle: GoogleFonts.inriaSerif(
+                                fontSize: 18,
                               ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            controller: passwordController,
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
                               icon: Icon(Icons.lock),
                               labelText: "Password",
                               labelStyle: GoogleFonts.inriaSerif(
@@ -158,7 +174,54 @@ class _SignupScreenState extends State<SignupScreen> {
                             ),
                           ),
                           SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              icon: Icon(Icons.lock),
+                              labelText: "Confirm Password",
+                              labelStyle: GoogleFonts.inriaSerif(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
                             height: 40,
+                          ),
+                          SignupButton(
+                            emialController: emialController,
+                            passwordController: passwordController,
+                          ),
+                          Center(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Wrap(
+                                spacing: 10,
+                                children: [
+                                  Text(
+                                    "Already have an Account ?",
+                                    style: GoogleFonts.inriaSerif(
+                                        color: Colors.black, fontSize: 15),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => LoginScreen(),
+                                          ));
+                                    },
+                                    child: Text(
+                                      "Login",
+                                      style: GoogleFonts.inriaSerif(
+                                          color: Colors.blue[900],
+                                          fontSize: 15),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -169,7 +232,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   left: 120,
                   child: Image(
                       alignment: Alignment.topCenter,
-                      image: AssetImage("assets/images/login image.png")),
+                      image: AssetImage("assets/images/signup image.png")),
                 ),
               ],
             ),
@@ -177,6 +240,5 @@ class _SignupScreenState extends State<SignupScreen> {
         ],
       ),
     );
-    ;
   }
 }
