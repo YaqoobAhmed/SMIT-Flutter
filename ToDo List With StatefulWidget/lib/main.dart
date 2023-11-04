@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:state_full_practice/Theme/dark_theme.dart';
+import 'package:state_full_practice/Theme/light_theme.dart';
 import 'state_full_screen.dart';
 
 void main() {
@@ -10,7 +12,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: lightTheme,
+      darkTheme: darkTheme,
       debugShowCheckedModeBanner: false,
       home: Screen(),
     );

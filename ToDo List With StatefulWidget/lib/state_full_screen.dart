@@ -45,72 +45,78 @@ class _ScreenState extends State<Screen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(7, 172, 70, 1),
-        title: Text("ToDo List App"),
-      ),
-
-      body: Column(
-        children: [
-          Container(
-            color: Colors.green[300],
-            child: ListTile(
-              title: TextField(
-                  autofocus: true,
-                  controller: addList,
-                  decoration: const InputDecoration(
-                    hintText: 'Enter An item',
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Color.fromRGBO(
-                              7, 172, 70, 25)), // Set the desired color
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          title: Text("ToDo List App"),
+        ),
+        body: Column(
+          children: [
+            Container(
+              color: Theme.of(context).colorScheme.secondary,
+              child: ListTile(
+                title: TextField(
+                    autofocus: true,
+                    controller: addList,
+                    decoration: const InputDecoration(
+                      hintText: 'Enter An item',
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(
+                                7, 172, 70, 25)), // Set the desired color
+                      ),
+                    )),
+                trailing: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
                     ),
-                  )),
-              trailing: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromRGBO(7, 172, 70, 25),
-                  ),
-                  onPressed: () {
-                    newEntry();
-                  },
-                  child: const Text("Add")),
+                    onPressed: () {
+                      newEntry();
+                    },
+                    child: const Text(
+                      "Add",
+                      style: TextStyle(color: Colors.white),
+                    )),
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: todoList.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    ListTile(
-                      tileColor: const Color.fromARGB(166, 165, 214, 167),
-                      title: Text(todoList[index]),
-                      trailing: Wrap(children: [
-                        IconButton(
-                            iconSize: 25,
-                            onPressed: () {
-                              UpdateEntry(index);
-                            },
-                            icon: Icon(Icons.edit)),
-                        IconButton(
-                            onPressed: () {
-                              setState(() {
-                                todoList.removeAt(index);
-                              });
-                            },
-                            icon: const Icon(Icons.delete)),
-                      ]),
-                    ),
-                    const SizedBox(
-                      height: 1.5,
-                    )
-                  ],
-                );
-              },
+            Expanded(
+              child: ListView.builder(
+                itemCount: todoList.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      ListTile(
+                        tileColor:
+                            Theme.of(context).colorScheme.primaryContainer,
+                        title: Text(todoList[index]),
+                        trailing: Wrap(children: [
+                          IconButton(
+                              iconSize: 25,
+                              onPressed: () {
+                                UpdateEntry(index);
+                              },
+                              icon: Icon(Icons.edit)),
+                          IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  todoList.removeAt(index);
+                                });
+                              },
+                              icon: const Icon(Icons.delete)),
+                        ]),
+                      ),
+                      const SizedBox(
+                        height: 1.5,
+                      )
+                    ],
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
