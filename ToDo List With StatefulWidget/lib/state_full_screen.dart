@@ -36,7 +36,10 @@ class _ScreenState extends State<Screen> {
                   });
                   Navigator.pop(context);
                 },
-                child: Text("Update")),
+                child: Text(
+                  "Update",
+                  style: TextStyle(color: Colors.white),
+                )),
           ],
         );
       },
