@@ -1,0 +1,18 @@
+{
+    "title": "ToDo List",
+    "@title":{
+        "description": "App title"
+    },
+    "language": "English",
+    "@language":{
+        "description": "The current Language"
+    },
+    "addition": "Add",
+    "@language":{
+        "description": "Add item to list"
+    },
+    "updation": "Update",
+    "@language":{
+        "description": "Update item to list"
+    }
+}
