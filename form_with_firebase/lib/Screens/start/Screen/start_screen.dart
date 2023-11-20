@@ -11,8 +11,8 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController emialController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
+    // TextEditingController emialController = TextEditingController();
+    // TextEditingController passwordController = TextEditingController();
 
     return Scaffold(
       backgroundColor: Colors.white,
