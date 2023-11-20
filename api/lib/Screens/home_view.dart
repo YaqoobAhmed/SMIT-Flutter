@@ -31,6 +31,7 @@ class _HomeViewState extends State<HomeView> {
               return ListTile(
                 title: Text(snapshot.data!.title!),
                 subtitle: Text(snapshot.data!.body!),
+                leading: Text('${snapshot.data!.id!}'),
               );
             }
             return Center(
