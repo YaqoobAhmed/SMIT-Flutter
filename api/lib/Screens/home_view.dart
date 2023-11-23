@@ -15,11 +15,12 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   Future<List<PostModel>> getPosts() async {
     List<PostModel> allPost = [];
-    var url = Uri.https('jsonplaceholder.typicode.com', '/posts/1');
+    var url = Uri.https('jsonplaceholder.typicode.com', '/posts');
     var response = await http.get(url);
     var responseBody = jsonDecode(response.body);
     for (var i in responseBody) {
       allPost.add(PostModel.fromJson(i));
+      setState(() {});
     }
     return allPost;
   }
@@ -27,20 +28,32 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        shadowColor: Colors.grey,
+        title: Center(
+            child: Text(
+          "Api Get",
+          style: TextStyle(
+              color: Colors.white, fontSize: 24, fontWeight: FontWeight.w600),
+        )),
+        backgroundColor: Colors.green,
+      ),
       body: SafeArea(
         child: FutureBuilder(
           builder:
               ((BuildContext context, AsyncSnapshot<List<PostModel>> snapshot) {
             //AsyncSnapshot is mention here to define type that is future so that it can capture data length
             if (snapshot.hasData) {
-              return ListTile(
-                title: Text(snapshot.data![0].title!),
-                subtitle: Text(snapshot.data![0].body!),
-                leading: Text(
-                  '${snapshot.data![0].id!}',
-                  style: TextStyle(fontSize: 30),
-                ),
-              );
+              return ListView.builder(itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(snapshot.data![index].title!),
+                  subtitle: Text(snapshot.data![index].body!),
+                  leading: Text(
+                    '${snapshot.data![index].id!}',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                );
+              });
             }
             return Center(
               child: CircularProgressIndicator(
