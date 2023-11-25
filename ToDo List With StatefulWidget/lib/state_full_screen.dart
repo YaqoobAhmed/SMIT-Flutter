@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Screen extends StatefulWidget {
   const Screen({super.key});
@@ -11,11 +12,25 @@ class _ScreenState extends State<Screen> {
   TextEditingController addList = TextEditingController();
   TextEditingController updateList = TextEditingController();
 
-  void newEntry() {
-    setState(() {
-      todoList.add(addList.text);
-      addList.clear();
-    });
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getlist();
+  }
+
+  getlist() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    todoList = prefs.getStringList("list") ?? [];
+    setState(() {});
+  }
+
+  void newEntry() async {
+    todoList.add(addList.text);
+    addList.clear();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setStringList("list", todoList);
+    setState(() {});
   }
 
   UpdateEntry(index) {
@@ -75,7 +90,7 @@ class _ScreenState extends State<Screen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.primary,
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       newEntry();
                     },
                     child: const Text(
