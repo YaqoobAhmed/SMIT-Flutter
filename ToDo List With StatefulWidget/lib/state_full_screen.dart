@@ -45,12 +45,18 @@ class _ScreenState extends State<Screen> {
           ),
           actions: [
             ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    todoList[index] = updateList.text;
-                  });
+                onPressed: () async {
+                  todoList[index] = updateList.text;
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  prefs.setStringList("list", todoList);
+                  setState(() {});
+
                   Navigator.pop(context);
                 },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                ),
                 child: Text(
                   "Update",
                   style: TextStyle(color: Colors.white),
@@ -93,9 +99,9 @@ class _ScreenState extends State<Screen> {
                     onPressed: () async {
                       newEntry();
                     },
-                    child: const Text(
+                    child: Text(
                       "Add",
-                      style: TextStyle(color: Colors.white),
+                      style: Theme.of(context).textTheme.titleSmall,
                     )),
               ),
             ),
@@ -115,14 +121,22 @@ class _ScreenState extends State<Screen> {
                               onPressed: () {
                                 UpdateEntry(index);
                               },
-                              icon: Icon(Icons.edit)),
+                              icon: Icon(
+                                Icons.edit,
+                                color: Colors.black38,
+                              )),
                           IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  todoList.removeAt(index);
-                                });
+                              onPressed: () async {
+                                todoList.removeAt(index);
+                                SharedPreferences prefs =
+                                    await SharedPreferences.getInstance();
+                                prefs.setStringList("list", todoList);
+                                setState(() {});
                               },
-                              icon: const Icon(Icons.delete)),
+                              icon: const Icon(
+                                Icons.delete,
+                                color: Colors.black38,
+                              )),
                         ]),
                       ),
                       const SizedBox(
