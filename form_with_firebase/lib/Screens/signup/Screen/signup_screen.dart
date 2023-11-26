@@ -15,6 +15,8 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   TextEditingController emialController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   bool obscureText = true;
   CollectionReference users = FirebaseFirestore.instance.collection('users');
 
@@ -22,9 +24,10 @@ class _SignupScreenState extends State<SignupScreen> {
     // Call the user's CollectionReference to add a new user
     return users
         .add({
-          'full_name': "", // John Doe
-          'company': "", // Stokes and Sons
-          'age': "" // 42
+          'full_name': nameController.text, // John Doe
+          'email': emialController.text,
+          'Phone': phoneController.text,
+          "password": passwordController.text
         })
         .then((value) => print("User Added"))
         .catchError((error) => print("Failed to add user: $error"));
@@ -142,105 +145,114 @@ class _SignupScreenState extends State<SignupScreen> {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
-                      child: Form(
-                        child: ListView(
-                          children: [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            TextFormField(
-                              controller: emialController,
-                              keyboardType: TextInputType.emailAddress,
-                              decoration: InputDecoration(
-                                icon: Icon(Icons.email),
-                                labelText: "Email",
-                                labelStyle: GoogleFonts.inriaSerif(
-                                  fontSize: 18,
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                        ),
+                        child: Form(
+                          child: ListView(
+                            children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              TextFormField(
+                                controller: nameController,
+                                keyboardType: TextInputType.name,
+                                decoration: InputDecoration(
+                                  icon: Icon(Icons.person),
+                                  labelText: "Full Name",
+                                  labelStyle: GoogleFonts.inriaSerif(
+                                    fontSize: 18,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            TextFormField(
-                              keyboardType: TextInputType.emailAddress,
-                              decoration: InputDecoration(
-                                icon: Icon(Icons.phone),
-                                labelText: "Phone",
-                                labelStyle: GoogleFonts.inriaSerif(
-                                  fontSize: 18,
+                              SizedBox(
+                                height: 10,
+                              ),
+                              TextFormField(
+                                controller: emialController,
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: InputDecoration(
+                                  icon: Icon(Icons.email),
+                                  labelText: "Email",
+                                  labelStyle: GoogleFonts.inriaSerif(
+                                    fontSize: 18,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            TextFormField(
-                              controller: passwordController,
-                              keyboardType: TextInputType.emailAddress,
-                              decoration: InputDecoration(
-                                icon: Icon(Icons.lock),
-                                labelText: "Password",
-                                labelStyle: GoogleFonts.inriaSerif(
-                                  fontSize: 18,
+                              SizedBox(
+                                height: 10,
+                              ),
+                              TextFormField(
+                                controller: phoneController,
+                                keyboardType: TextInputType.phone,
+                                decoration: InputDecoration(
+                                  icon: Icon(Icons.phone),
+                                  labelText: "Phone",
+                                  labelStyle: GoogleFonts.inriaSerif(
+                                    fontSize: 18,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            TextFormField(
-                              keyboardType: TextInputType.emailAddress,
-                              decoration: InputDecoration(
-                                icon: Icon(Icons.lock),
-                                labelText: "Confirm Password",
-                                labelStyle: GoogleFonts.inriaSerif(
-                                  fontSize: 18,
+                              SizedBox(
+                                height: 10,
+                              ),
+                              TextFormField(
+                                obscureText: true,
+                                controller: passwordController,
+                                keyboardType: TextInputType.visiblePassword,
+                                decoration: InputDecoration(
+                                  icon: Icon(Icons.lock),
+                                  labelText: "Password",
+                                  labelStyle: GoogleFonts.inriaSerif(
+                                    fontSize: 18,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 40,
-                            ),
-                            SignupButton(
-                              emialController: emialController,
-                              passwordController: passwordController,
-                            ),
-                            Center(
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 20),
-                                child: Wrap(
-                                  spacing: 10,
-                                  children: [
-                                    Text(
-                                      "Already have an Account ?",
-                                      style: GoogleFonts.inriaSerif(
-                                          color: Colors.black, fontSize: 15),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        Navigator.pushReplacement(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  LoginScreen(),
-                                            ));
-                                      },
-                                      child: Text(
-                                        "Login",
+                              SizedBox(
+                                height: 40,
+                              ),
+                              SignupButton(
+                                emialController: emialController,
+                                passwordController: passwordController,
+                              ),
+                              Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 10,
+                                  ),
+                                  child: Wrap(
+                                    spacing: 10,
+                                    children: [
+                                      Text(
+                                        "Already have an Account ?",
                                         style: GoogleFonts.inriaSerif(
-                                            color: Colors.blue[900],
-                                            fontSize: 15),
+                                            color: Colors.black, fontSize: 15),
                                       ),
-                                    )
-                                  ],
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    LoginScreen(),
+                                              ));
+                                        },
+                                        child: Text(
+                                          "Login",
+                                          style: GoogleFonts.inriaSerif(
+                                              color: Colors.blue[900],
+                                              fontSize: 15),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
