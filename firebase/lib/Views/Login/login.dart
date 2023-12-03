@@ -44,7 +44,7 @@ class _LoginViewState extends State<LoginView> {
       appBar: AppBar(
         backgroundColor: Colors.lightGreen,
         title: Center(
-          child: Text("Signup Page"),
+          child: Text("Login Page"),
         ),
       ),
       body: Column(
