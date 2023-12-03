@@ -1,3 +1,4 @@
+import 'package:firebase/Views/Mainpage/mainveiw.dart';
 import 'package:firebase/Views/Register/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,9 @@ class _LoginViewState extends State<LoginView> {
         final credential = await FirebaseAuth.instance
             .signInWithEmailAndPassword(
                 email: emailAddress, password: password);
+
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomeView()));
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           print('No user found for that email.');
@@ -75,7 +79,7 @@ class _LoginViewState extends State<LoginView> {
             height: 50,
           ),
           GestureDetector(
-            //onTap: RegisterUser,
+            onTap: login,
             child: Container(
               height: MediaQuery.of(context).size.height * 0.05,
               width: MediaQuery.of(context).size.width * 0.8,
