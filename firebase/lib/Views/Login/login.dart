@@ -1,39 +1,35 @@
-import 'package:flutter/material.dart';
+import 'package:firebase/Views/Register/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
-class RegisterView extends StatefulWidget {
-  const RegisterView({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<RegisterView> createState() => _RegisterViewState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _RegisterViewState extends State<RegisterView> {
-  TextEditingController nameController = TextEditingController();
+class _LoginViewState extends State<LoginView> {
   TextEditingController emailController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController cPasswordController = TextEditingController();
 
-  void RegisterUser() async {
-    String name = nameController.text.trim();
-    String email = emailController.text.trim();
+  login() async {
+    String emailAddress = emailController.text.trim();
     String password = passwordController.text.trim();
-    String cPassword = cPasswordController.text.trim();
-
-    if (name == "" || email == "" || password == "" || cPassword == "") {
+    if (emailAddress == "" || password == "") {
       print("Please fill all fields");
-    } else if (password != cPassword) {
-      print("Password does not match");
     } else {
       try {
         // ignore: unused_local_variable
-        UserCredential userCredential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(email: email, password: password);
-        print("User created");
-        Navigator.pop(context);
-      } on FirebaseAuthException catch (ex) {
-        print(ex.code.toString());
+        final credential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(
+                email: emailAddress, password: password);
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'user-not-found') {
+          print('No user found for that email.');
+        } else if (e.code == 'wrong-password') {
+          print('Wrong password provided for that user.');
+        }
       }
     }
   }
@@ -56,27 +52,11 @@ class _RegisterViewState extends State<RegisterView> {
             child: Column(
               children: [
                 TextFormField(
-                  controller: nameController,
-                  keyboardType: TextInputType.name,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.person),
-                    labelText: "Full Name",
-                  ),
-                ),
-                TextFormField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     icon: Icon(Icons.email),
                     labelText: "Email",
-                  ),
-                ),
-                TextFormField(
-                  controller: phoneController,
-                  keyboardType: TextInputType.phone,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.phone),
-                    labelText: "phone",
                   ),
                 ),
                 TextFormField(
@@ -88,15 +68,6 @@ class _RegisterViewState extends State<RegisterView> {
                     labelText: "Password",
                   ),
                 ),
-                TextFormField(
-                  obscureText: true,
-                  controller: cPasswordController,
-                  keyboardType: TextInputType.name,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.lock),
-                    labelText: "Confirm Password",
-                  ),
-                )
               ],
             ),
           )),
@@ -104,7 +75,7 @@ class _RegisterViewState extends State<RegisterView> {
             height: 50,
           ),
           GestureDetector(
-            onTap: RegisterUser,
+            //onTap: RegisterUser,
             child: Container(
               height: MediaQuery.of(context).size.height * 0.05,
               width: MediaQuery.of(context).size.width * 0.8,
@@ -113,11 +84,31 @@ class _RegisterViewState extends State<RegisterView> {
                   borderRadius: BorderRadius.circular(16)),
               child: Center(
                 child: Text(
-                  "Signup",
+                  "Login",
                   style: TextStyle(color: Colors.white),
                 ),
               ),
             ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Wrap(
+            children: [
+              Text("Already have an account ? "),
+              GestureDetector(
+                child: Text(
+                  "Register",
+                  style: TextStyle(color: Colors.green.shade700),
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => RegisterView()));
+                },
+              )
+            ],
           ),
         ],
       ),

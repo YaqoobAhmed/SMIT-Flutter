@@ -1,4 +1,4 @@
-import 'package:firebase/Views/Register/register.dart';
+import 'package:firebase/Views/Login/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RegisterView(),
+      home: LoginView(),
     );
   }
 }
