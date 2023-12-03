@@ -1,4 +1,4 @@
-import 'package:firebase/Views/Mainpage/mainveiw.dart';
+import 'package:firebase/Views/Mainpage/home.dart';
 import 'package:firebase/Views/Register/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -120,7 +120,7 @@ class _LoginViewState extends State<LoginView> {
               ),
               Wrap(
                 children: [
-                  Text("Already have an account ? "),
+                  Text("Don't have an account ? "),
                   GestureDetector(
                     child: Text(
                       "Register",

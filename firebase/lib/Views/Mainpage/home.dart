@@ -15,7 +15,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightGreen,
-        title: const Text("Home Page"),
+        title: Center(child: const Text("Home Page")),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {

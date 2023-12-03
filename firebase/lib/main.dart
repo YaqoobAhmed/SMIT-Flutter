@@ -1,4 +1,6 @@
 import 'package:firebase/Views/Login/login.dart';
+import 'package:firebase/Views/Mainpage/home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
@@ -18,7 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginView(),
+      home: (FirebaseAuth.instance.currentUser != null)
+          ? HomeView()
+          : LoginView(),
     );
   }
 }
