@@ -78,15 +78,26 @@ class _LoginViewState extends State<LoginView> {
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
+                          labelStyle: TextStyle(color: Colors.lightGreen),
+                          iconColor: Colors.lightGreen,
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16)),
                           icon: Icon(Icons.email),
                           labelText: "Email",
                         ),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       TextFormField(
                         obscureText: true,
                         controller: passwordController,
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
+                          labelStyle: TextStyle(color: Colors.lightGreen),
+                          iconColor: Colors.lightGreen,
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16)),
                           icon: Icon(Icons.lock),
                           labelText: "Password",
                         ),

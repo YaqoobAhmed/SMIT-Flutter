@@ -59,40 +59,72 @@ class _RegisterViewState extends State<RegisterView> {
                   controller: nameController,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
+                    labelStyle: TextStyle(color: Colors.lightGreen),
+                    iconColor: Colors.lightGreen,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16)),
                     icon: Icon(Icons.person),
                     labelText: "Full Name",
                   ),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 TextFormField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
+                    labelStyle: TextStyle(color: Colors.lightGreen),
+                    iconColor: Colors.lightGreen,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16)),
                     icon: Icon(Icons.email),
                     labelText: "Email",
                   ),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 TextFormField(
                   controller: phoneController,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
+                    labelStyle: TextStyle(color: Colors.lightGreen),
+                    iconColor: Colors.lightGreen,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16)),
                     icon: Icon(Icons.phone),
                     labelText: "phone",
                   ),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 TextFormField(
                   obscureText: true,
                   controller: passwordController,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
+                    labelStyle: TextStyle(color: Colors.lightGreen),
+                    iconColor: Colors.lightGreen,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16)),
                     icon: Icon(Icons.lock),
                     labelText: "Password",
                   ),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 TextFormField(
                   obscureText: true,
                   controller: cPasswordController,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
+                    labelStyle: TextStyle(color: Colors.lightGreen),
+                    iconColor: Colors.lightGreen,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16)),
                     icon: Icon(Icons.lock),
                     labelText: "Confirm Password",
                   ),
