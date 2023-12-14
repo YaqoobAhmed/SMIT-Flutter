@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/Views/Login/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,36 @@ class _HomeViewState extends State<HomeView> {
         },
         child: Icon(Icons.logout),
         backgroundColor: Colors.lightGreen,
+      ),
+      body: Column(
+        children: [
+          StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance.collection("user").snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.active) {
+                  if (snapshot.hasData && snapshot.data != null) {
+                    return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: snapshot.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          Map<String, dynamic> userMap =
+                              snapshot.data!.docs[index].data()
+                                  as Map<String, dynamic>;
+                          return ListTile(
+                            title: Text(userMap["name"]),
+                            subtitle: Text(userMap["phone"]),
+                          );
+                        });
+                  } else {
+                    return Text("no data");
+                  }
+                } else {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              })
+        ],
       ),
     );
   }
