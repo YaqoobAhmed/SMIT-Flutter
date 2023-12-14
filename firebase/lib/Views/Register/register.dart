@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -20,6 +21,7 @@ class _RegisterViewState extends State<RegisterView> {
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
     String cPassword = cPasswordController.text.trim();
+    String phone = phoneController.text.trim();
 
     if (name == "" || email == "" || password == "" || cPassword == "") {
       print("Please fill all fields");
@@ -30,6 +32,16 @@ class _RegisterViewState extends State<RegisterView> {
         // ignore: unused_local_variable
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password);
+
+        //fore storing user info
+        FirebaseFirestore _firestore = FirebaseFirestore.instance;
+        Map<String, dynamic> userdata = {
+          "name": name,
+          "email": email,
+          "phone": phone
+        };
+        await _firestore.collection("user").add(userdata);
+
         print("User created");
         Navigator.pop(context);
       } on FirebaseAuthException catch (ex) {

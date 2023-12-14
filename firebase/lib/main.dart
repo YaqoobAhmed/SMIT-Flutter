@@ -21,14 +21,15 @@ void main() async {
   //   print(doc.data().toString());
   // }
 
-  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  // FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Map<String, dynamic> newuserdata = {
-    "name": "Yaqoob",
-    "mail": "yaqoob@gmail.com"
-  };
-  await _firestore.collection("user").add(newuserdata);
-  print("new user added");
+  // Map<String, dynamic> newuserdata = {
+  //   "name": "Yaqoob",
+  //   "mail": "yaqoob@gmail.com"
+  // };
+  // await _firestore.collection("user").add(newuserdata);
+  //.doc("").update()
+  //.doc("").delete
 
   runApp(const MyApp());
 }
