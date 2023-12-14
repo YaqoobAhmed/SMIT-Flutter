@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/Views/Login/login.dart';
 import 'package:firebase/Views/Mainpage/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
