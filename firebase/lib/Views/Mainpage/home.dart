@@ -41,9 +41,20 @@ class _HomeViewState extends State<HomeView> {
                           Map<String, dynamic> userMap =
                               snapshot.data!.docs[index].data()
                                   as Map<String, dynamic>;
-                          return ListTile(
-                            title: Text(userMap["name"]),
-                            subtitle: Text(userMap["phone"]),
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                radius: 30,
+                                backgroundImage:
+                                    NetworkImage(userMap["profilePick"]),
+                              ),
+                              title: Text(
+                                userMap["name"],
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: Text(userMap["phone"]),
+                            ),
                           );
                         });
                   } else {

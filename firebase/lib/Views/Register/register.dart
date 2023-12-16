@@ -35,7 +35,7 @@ class _RegisterViewState extends State<RegisterView> {
         email == "" ||
         password == "" ||
         cPassword == "" ||
-        profilePick != null) {
+        profilePick == null) {
       print("Please fill all fields");
     } else if (password != cPassword) {
       print("Password does not match");
@@ -126,7 +126,7 @@ class _RegisterViewState extends State<RegisterView> {
                 ),
                 Form(
                     child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: [
                       TextFormField(
