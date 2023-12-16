@@ -48,12 +48,22 @@ class _RegisterViewState extends State<RegisterView> {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password);
 
+        UploadTask uploadTask = FirebaseStorage.instance
+            .ref()
+            .child("UserProfilePictures")
+            .child(Uuid().v1())
+            .putFile(profilePick!);
+
+        TaskSnapshot taskSnapshot = await uploadTask;
+        String donwnloadUrl = await taskSnapshot.ref.getDownloadURL();
+
         //fore storing user info
         FirebaseFirestore _firestore = FirebaseFirestore.instance;
         Map<String, dynamic> userdata = {
           "name": name,
           "email": email,
           "phone": phone,
+          "profilePick": donwnloadUrl
         };
         await _firestore.collection("user").add(userdata);
 
