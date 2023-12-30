@@ -1,5 +1,6 @@
 import 'package:firebase/Views/Mainpage/home.dart';
 import 'package:firebase/Views/Register/register.dart';
+import 'package:firebase/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -58,9 +59,12 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: blueColor,
         title: Center(
-          child: Text("Login Page"),
+          child: Text(
+            "Login Page",
+            style: TextStyle(color: whiteColor),
+          ),
         ),
       ),
       body: Stack(
@@ -78,11 +82,15 @@ class _LoginViewState extends State<LoginView> {
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
-                          labelStyle: TextStyle(color: Colors.lightGreen),
-                          iconColor: Colors.lightGreen,
-                          enabledBorder: OutlineInputBorder(
+                          suffixIcon: Icon(
+                            Icons.email,
+                            color: blueColor,
+                          ),
+                          labelStyle: TextStyle(color: blueColor),
+                          iconColor: blueColor,
+                          border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(16)),
-                          icon: Icon(Icons.email),
+                          //icon: Icon(Icons.email),
                           labelText: "Email",
                         ),
                       ),
@@ -94,11 +102,15 @@ class _LoginViewState extends State<LoginView> {
                         controller: passwordController,
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
-                          labelStyle: TextStyle(color: Colors.lightGreen),
-                          iconColor: Colors.lightGreen,
-                          enabledBorder: OutlineInputBorder(
+                          labelStyle: TextStyle(color: blueColor),
+                          iconColor: blueColor,
+                          border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(16)),
-                          icon: Icon(Icons.lock),
+                          suffixIcon: Icon(
+                            Icons.lock,
+                            color: blueColor,
+                          ),
+                          //icon: Icon(Icons.lock),
                           labelText: "Password",
                         ),
                       ),
@@ -115,7 +127,7 @@ class _LoginViewState extends State<LoginView> {
                   height: MediaQuery.of(context).size.height * 0.05,
                   width: MediaQuery.of(context).size.width * 0.8,
                   decoration: BoxDecoration(
-                    color: Colors.lightGreen,
+                    color: blueColor,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Center(
@@ -135,7 +147,7 @@ class _LoginViewState extends State<LoginView> {
                   GestureDetector(
                     child: Text(
                       "Register",
-                      style: TextStyle(color: Colors.green.shade700),
+                      style: TextStyle(color: darkblueColor),
                     ),
                     onTap: () {
                       Navigator.push(

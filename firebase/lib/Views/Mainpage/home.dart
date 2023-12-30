@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/Views/Login/login.dart';
+import 'package:firebase/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +16,12 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
-        title: Center(child: const Text("Home Page")),
+        backgroundColor: blueColor,
+        title: Center(
+            child: const Text(
+          "Home Page",
+          style: TextStyle(color: Colors.white),
+        )),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
@@ -24,8 +29,11 @@ class _HomeViewState extends State<HomeView> {
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => LoginView()));
         },
-        child: Icon(Icons.logout),
-        backgroundColor: Colors.lightGreen,
+        child: Icon(
+          Icons.logout,
+          color: Colors.white,
+        ),
+        backgroundColor: blueColor,
       ),
       body: Column(
         children: [
@@ -44,11 +52,6 @@ class _HomeViewState extends State<HomeView> {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: ListTile(
-                              leading: CircleAvatar(
-                                radius: 30,
-                                backgroundImage:
-                                    NetworkImage(userMap["profilePick"]),
-                              ),
                               title: Text(
                                 userMap["name"],
                                 style: TextStyle(fontWeight: FontWeight.bold),

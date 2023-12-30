@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/Views/Mainpage/home.dart';
+import 'package:firebase/colors.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -31,11 +32,11 @@ class _RegisterViewState extends State<RegisterView> {
     String cPassword = cPasswordController.text.trim();
     String phone = phoneController.text.trim();
 
-    if (name == "" ||
-        email == "" ||
-        password == "" ||
-        cPassword == "" ||
-        profilePick == null) {
+    if (name == "" || email == "" || password == "" || cPassword == ""
+        //  ||
+        // profilePick == null
+
+        ) {
       print("Please fill all fields");
     } else if (password != cPassword) {
       print("Password does not match");
@@ -48,14 +49,14 @@ class _RegisterViewState extends State<RegisterView> {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password);
 
-        UploadTask uploadTask = FirebaseStorage.instance
-            .ref()
-            .child("UserProfilePictures")
-            .child(Uuid().v1())
-            .putFile(profilePick!);
+        // UploadTask uploadTask = FirebaseStorage.instance
+        //     .ref()
+        //     .child("UserProfilePictures")
+        //     .child(Uuid().v1())
+        //     .putFile(profilePick!);
 
-        TaskSnapshot taskSnapshot = await uploadTask;
-        String donwnloadUrl = await taskSnapshot.ref.getDownloadURL();
+        // TaskSnapshot taskSnapshot = await uploadTask;
+        // String donwnloadUrl = await taskSnapshot.ref.getDownloadURL();
 
         //fore storing user info
         FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -63,7 +64,7 @@ class _RegisterViewState extends State<RegisterView> {
           "name": name,
           "email": email,
           "phone": phone,
-          "profilePick": donwnloadUrl
+          // "profilePick": donwnloadUrl
         };
         await _firestore.collection("user").add(userdata);
 
@@ -84,157 +85,145 @@ class _RegisterViewState extends State<RegisterView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
-        title: Center(
-          child: Text("Signup Page"),
+        centerTitle: true,
+        backgroundColor: blueColor,
+        title: Text(
+          "Signup Page",
+          style: TextStyle(color: whiteColor),
         ),
       ),
       body: Stack(
         children: [
           SingleChildScrollView(
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: Column(
-                    children: [
-                      InkWell(
-                        onTap: () async {
-                          XFile? selectedImage = await ImagePicker()
-                              .pickImage(source: ImageSource.gallery);
-                          if (selectedImage != null) {
-                            File convertedfile = File(selectedImage.path);
-                            setState(() {
-                              profilePick = convertedfile;
-                            });
-                            print("image selected");
-                          } else {
-                            print("image is not selected");
-                          }
-                        },
-                        child: CircleAvatar(
-                          radius: 40,
-                          backgroundImage: profilePick != null
-                              ? FileImage(profilePick!)
-                              : null,
+            child: Form(
+                child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.9,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextFormField(
+                      controller: nameController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelStyle: TextStyle(color: blueColor),
+                        iconColor: blueColor,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                        suffixIcon: Icon(
+                          Icons.person,
+                          color: blueColor,
                         ),
-                      ),
-                      Text("Upload Picture"),
-                    ],
-                  ),
-                ),
-                Form(
-                    child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        controller: nameController,
-                        keyboardType: TextInputType.name,
-                        decoration: InputDecoration(
-                          labelStyle: TextStyle(color: Colors.lightGreen),
-                          iconColor: Colors.lightGreen,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16)),
-                          icon: Icon(Icons.person),
-                          labelText: "Full Name",
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      TextFormField(
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          labelStyle: TextStyle(color: Colors.lightGreen),
-                          iconColor: Colors.lightGreen,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16)),
-                          icon: Icon(Icons.email),
-                          labelText: "Email",
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      TextFormField(
-                        controller: phoneController,
-                        keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
-                          labelStyle: TextStyle(color: Colors.lightGreen),
-                          iconColor: Colors.lightGreen,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16)),
-                          icon: Icon(Icons.phone),
-                          labelText: "phone",
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      TextFormField(
-                        obscureText: true,
-                        controller: passwordController,
-                        keyboardType: TextInputType.name,
-                        decoration: InputDecoration(
-                          labelStyle: TextStyle(color: Colors.lightGreen),
-                          iconColor: Colors.lightGreen,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16)),
-                          icon: Icon(Icons.lock),
-                          labelText: "Password",
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      TextFormField(
-                        obscureText: true,
-                        controller: cPasswordController,
-                        keyboardType: TextInputType.name,
-                        decoration: InputDecoration(
-                          labelStyle: TextStyle(color: Colors.lightGreen),
-                          iconColor: Colors.lightGreen,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16)),
-                          icon: Icon(Icons.lock),
-                          labelText: "Confirm Password",
-                        ),
-                      )
-                    ],
-                  ),
-                )),
-                SizedBox(
-                  height: 50,
-                ),
-                GestureDetector(
-                  onTap: RegisterUser,
-                  child: Container(
-                    height: MediaQuery.of(context).size.height * 0.05,
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    decoration: BoxDecoration(
-                        color: Colors.lightGreen,
-                        borderRadius: BorderRadius.circular(16)),
-                    child: Center(
-                      child: Text(
-                        "Signup",
-                        style: TextStyle(color: Colors.white),
+                        labelText: "Full Name",
                       ),
                     ),
-                  ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextFormField(
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        labelStyle: TextStyle(color: blueColor),
+                        iconColor: blueColor,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                        suffixIcon: Icon(
+                          Icons.email,
+                          color: blueColor,
+                        ),
+                        labelText: "Email",
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextFormField(
+                      controller: phoneController,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        labelStyle: TextStyle(color: blueColor),
+                        iconColor: blueColor,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                        suffixIcon: Icon(
+                          Icons.phone,
+                          color: blueColor,
+                        ),
+                        labelText: "phone",
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextFormField(
+                      obscureText: true,
+                      controller: passwordController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelStyle: TextStyle(color: blueColor),
+                        iconColor: blueColor,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                        suffixIcon: Icon(
+                          Icons.lock,
+                          color: blueColor,
+                        ),
+                        labelText: "Password",
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextFormField(
+                      obscureText: true,
+                      controller: cPasswordController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelStyle: TextStyle(color: blueColor),
+                        iconColor: blueColor,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                        suffixIcon: Icon(
+                          Icons.lock,
+                          color: blueColor,
+                        ),
+                        labelText: "Confirm Password",
+                      ),
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    GestureDetector(
+                      onTap: RegisterUser,
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        decoration: BoxDecoration(
+                            color: blueColor,
+                            borderRadius: BorderRadius.circular(16)),
+                        child: Center(
+                          child: Text(
+                            "Signup",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            )),
           ),
+
           // Conditionally show CircularProgressIndicator based on isLoading
           if (isLoading)
             Container(
               color: Colors.black.withOpacity(0.5),
               child: Center(
                 child: CircularProgressIndicator(
-                  color: Colors.lightGreen,
+                  color: blueColor,
                 ),
               ),
             ),
@@ -243,3 +232,39 @@ class _RegisterViewState extends State<RegisterView> {
     );
   }
 }
+
+
+
+
+
+
+
+ // Padding(
+                //   padding: const EdgeInsets.all(30.0),
+                //   child: Column(
+                //     children: [
+                //       InkWell(
+                //         onTap: () async {
+                //           XFile? selectedImage = await ImagePicker()
+                //               .pickImage(source: ImageSource.gallery);
+                //           if (selectedImage != null) {
+                //             File convertedfile = File(selectedImage.path);
+                //             setState(() {
+                //               profilePick = convertedfile;
+                //             });
+                //             print("image selected");
+                //           } else {
+                //             print("image is not selected");
+                //           }
+                //         },
+                //         child: CircleAvatar(
+                //           radius: 40,
+                //           backgroundImage: profilePick != null
+                //               ? FileImage(profilePick!)
+                //               : null,
+                //         ),
+                //       ),
+                //       Text("Upload Picture"),
+                //     ],
+                //   ),
+                // ),
