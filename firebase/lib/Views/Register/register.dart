@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/Views/Mainpage/home.dart';
 import 'package:firebase/colors.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+// import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:uuid/uuid.dart';
+// import 'package:image_picker/image_picker.dart';
+// import 'package:uuid/uuid.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -85,6 +85,14 @@ class _RegisterViewState extends State<RegisterView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: whiteColor,
+            )),
         centerTitle: true,
         backgroundColor: blueColor,
         title: Text(

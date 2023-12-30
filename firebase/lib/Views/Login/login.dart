@@ -168,7 +168,7 @@ class _LoginViewState extends State<LoginView> {
               color: Colors.black.withOpacity(0.5),
               child: Center(
                 child: CircularProgressIndicator(
-                  color: Colors.lightGreen,
+                  color: blueColor,
                 ),
               ),
             ),
