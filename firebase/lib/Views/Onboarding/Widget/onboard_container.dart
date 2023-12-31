@@ -2,10 +2,11 @@ import 'package:firebase/colors.dart';
 import 'package:flutter/material.dart';
 
 class OnboardContainer extends StatelessWidget {
-  OnboardContainer({super.key, required this.icon, required this.text});
+  OnboardContainer(
+      {super.key, required this.icon, required this.text, this.onTap});
   final Icon icon;
   final String text;
-  Function()? onTap;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {

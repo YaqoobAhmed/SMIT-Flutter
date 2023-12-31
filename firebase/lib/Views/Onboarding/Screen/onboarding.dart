@@ -1,4 +1,5 @@
 import 'package:firebase/Views/Onboarding/Widget/onboard_container.dart';
+import 'package:firebase/Views/buy/Screen/buy.dart';
 import 'package:firebase/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,11 @@ class Onboarding extends StatelessWidget {
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                 OnboardContainer(
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BuyScreen(),
+                      )),
                   icon: Icon(
                     Icons.shopping_bag,
                     color: whiteColor,
