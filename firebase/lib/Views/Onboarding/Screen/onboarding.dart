@@ -13,8 +13,7 @@ class Onboarding extends StatelessWidget {
         body: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  image:
-                      NetworkImage("https://funmauj.b-cdn.net/test/358016.jpg"),
+                  image: AssetImage("assets/images/onboarding.jpg"),
                   fit: BoxFit.fill)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

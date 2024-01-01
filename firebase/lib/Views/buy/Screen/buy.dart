@@ -10,6 +10,12 @@ class BuyScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            leading: IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: whiteColor,
+                )),
             centerTitle: true,
             backgroundColor: blueColor, // Use predefined Flutter color
             title: Text(
@@ -121,7 +127,7 @@ class BuyScreen extends StatelessWidget {
 
 List<Map<String, dynamic>> birds = [
   {
-    "image": "assets/images/Parrot.jpg",
+    "image": "assets/images/Parrotgreen.jpeg",
     "Name": "Parrot",
     "Breed": "Cross",
     "Contact": "123456789",
@@ -154,8 +160,19 @@ List<Map<String, dynamic>> birds = [
     "Adress": "Plot 49,Garden Swest,Kaarachi"
   },
   {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
+    "image": "assets/images/Parrotgreen.jpeg",
+    "Name": "Parrot",
+    "Breed": "Cross",
+    "Contact": "123456789",
+    "age": 1.5,
+    "Price": 25000,
+    "Discription":
+        "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
+    "Adress": "Plot 49,Garden Swest,Kaarachi"
+  },
+  {
+    "image": "assets/images/Pigion.jpg",
+    "Name": "Pigion",
     "Breed": "Cross",
     "Contact": "123456789",
     "age": 1.5,
@@ -176,8 +193,19 @@ List<Map<String, dynamic>> birds = [
     "Adress": "Plot 49,Garden Swest,Kaarachi"
   },
   {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
+    "image": "assets/images/Parrotgreen.jpeg",
+    "Name": "Parrot",
+    "Breed": "Cross",
+    "Contact": "123456789",
+    "age": 1.5,
+    "Price": 25000,
+    "Discription":
+        "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
+    "Adress": "Plot 49,Garden Swest,Kaarachi"
+  },
+  {
+    "image": "assets/images/Pigion.jpg",
+    "Name": "Pigion",
     "Breed": "Cross",
     "Contact": "123456789",
     "age": 1.5,
@@ -198,8 +226,19 @@ List<Map<String, dynamic>> birds = [
     "Adress": "Plot 49,Garden Swest,Kaarachi"
   },
   {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
+    "image": "assets/images/Parrotgreen.jpeg",
+    "Name": "Parrot",
+    "Breed": "Cross",
+    "Contact": "123456789",
+    "age": 1.5,
+    "Price": 25000,
+    "Discription":
+        "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
+    "Adress": "Plot 49,Garden Swest,Kaarachi"
+  },
+  {
+    "image": "assets/images/Pigion.jpg",
+    "Name": "Pigion",
     "Breed": "Cross",
     "Contact": "123456789",
     "age": 1.5,
@@ -220,8 +259,8 @@ List<Map<String, dynamic>> birds = [
     "Adress": "Plot 49,Garden Swest,Kaarachi"
   },
   {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
+    "image": "assets/images/Parrotgreen.jpeg",
+    "Name": "Parrot",
     "Breed": "Cross",
     "Contact": "123456789",
     "age": 1.5,
@@ -231,74 +270,8 @@ List<Map<String, dynamic>> birds = [
     "Adress": "Plot 49,Garden Swest,Kaarachi"
   },
   {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
-    "Breed": "Cross",
-    "Contact": "123456789",
-    "age": 1.5,
-    "Price": 25000,
-    "Discription":
-        "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
-    "Adress": "Plot 49,Garden Swest,Kaarachi"
-  },
-  {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
-    "Breed": "Cross",
-    "Contact": "123456789",
-    "age": 1.5,
-    "Price": 25000,
-    "Discription":
-        "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
-    "Adress": "Plot 49,Garden Swest,Kaarachi"
-  },
-  {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
-    "Breed": "Cross",
-    "Contact": "123456789",
-    "age": 1.5,
-    "Price": 25000,
-    "Discription":
-        "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
-    "Adress": "Plot 49,Garden Swest,Kaarachi"
-  },
-  {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
-    "Breed": "Cross",
-    "Contact": "123456789",
-    "age": 1.5,
-    "Price": 25000,
-    "Discription":
-        "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
-    "Adress": "Plot 49,Garden Swest,Kaarachi"
-  },
-  {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
-    "Breed": "Cross",
-    "Contact": "123456789",
-    "age": 1.5,
-    "Price": 25000,
-    "Discription":
-        "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
-    "Adress": "Plot 49,Garden Swest,Kaarachi"
-  },
-  {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
-    "Breed": "Cross",
-    "Contact": "123456789",
-    "age": 1.5,
-    "Price": 25000,
-    "Discription":
-        "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
-    "Adress": "Plot 49,Garden Swest,Kaarachi"
-  },
-  {
-    "image": "assets/images/Duck.jpg",
-    "Name": "Duck",
+    "image": "assets/images/Pigion.jpg",
+    "Name": "Pigion",
     "Breed": "Cross",
     "Contact": "123456789",
     "age": 1.5,
