@@ -53,7 +53,13 @@ class ProductView extends StatelessWidget {
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.9,
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 228, 228, 228)),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                spreadRadius: 0.1,
+                                blurRadius: 10,
+                                color: Colors.grey)
+                          ]),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
@@ -67,10 +73,38 @@ class ProductView extends StatelessWidget {
                             SizedBox(
                               height: 10,
                             ),
-                            Text(
-                              "Breed: ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400, fontSize: 18),
+                            RichText(
+                              text: TextSpan(
+                                  text: "Breed: ",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18,
+                                      color: Colors.black),
+                                  children: [
+                                    TextSpan(
+                                        text: "Cross",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.normal))
+                                  ]),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                  text: "Age: ",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18,
+                                      color: Colors.black),
+                                  children: [
+                                    TextSpan(
+                                        text: "1.2",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.normal))
+                                  ]),
                             ),
                             SizedBox(
                               height: 10,
@@ -79,7 +113,7 @@ class ProductView extends StatelessWidget {
                               text: TextSpan(
                                   text: "Description: ",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w600,
                                       fontSize: 18,
                                       color: Colors.black),
                                   children: [
@@ -88,6 +122,24 @@ class ProductView extends StatelessWidget {
                                             "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
                                         style: TextStyle(
                                             fontSize: 14,
+                                            fontWeight: FontWeight.normal))
+                                  ]),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                  text: "Address: ",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18,
+                                      color: Colors.black),
+                                  children: [
+                                    TextSpan(
+                                        text: "hjkhjhjkhjkhjhj",
+                                        style: TextStyle(
+                                            fontSize: 18,
                                             fontWeight: FontWeight.normal))
                                   ]),
                             ),
