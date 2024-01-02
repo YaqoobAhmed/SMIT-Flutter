@@ -8,44 +8,125 @@ class ProductView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        body: Stack(
           children: [
-            Stack(children: [
-              Container(
-                height: 250,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/Parrotgreen.jpeg"),
-                      fit: BoxFit.fill),
-                ),
-              ),
-              Positioned(
-                top: 10,
-                left: 10,
-                child: GestureDetector(
-                  onTap: () => Navigator.pop(context),
-                  child: CircleAvatar(
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Stack(children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40.0, vertical: 60),
+                      child: Container(
+                        height: 250,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(7),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.grey,
+                              spreadRadius: 12,
+                              blurRadius: 22,
+                              //offset: Offset(-2, 3)
+                            )
+                          ],
+                          image: DecorationImage(
+                              image:
+                                  AssetImage("assets/images/Parrotgreen.jpeg"),
+                              fit: BoxFit.fill),
+                        ),
+                      ),
                     ),
-                    radius: 20,
-                    backgroundColor: whiteColor.withOpacity(0.3),
-                  ),
-                ),
-              )
-            ]),
-            Column(
-              children: [
-                ListTile(
-                  title: Text(
-                    "Parrot",
-                    style: TextStyle(),
-                  ),
-                )
-              ],
-            )
+                    Positioned(
+                      top: 20,
+                      left: 20,
+                      child: GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.black,
+                        ),
+                      ),
+                    )
+                  ]),
+                  Center(
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 228, 228, 228)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Parrot",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 26),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Breed: ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400, fontSize: 18),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                  text: "Description: ",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18,
+                                      color: Colors.black),
+                                  children: [
+                                    TextSpan(
+                                        text:
+                                            "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal))
+                                  ]),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Price: ",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 20),
+                                ),
+                                Container(
+                                  height: 35,
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                      color: blueColor,
+                                      borderRadius: BorderRadius.circular(16)),
+                                  child: Center(
+                                      child: Text(
+                                    "Contact",
+                                    style: TextStyle(
+                                        color: whiteColor,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
