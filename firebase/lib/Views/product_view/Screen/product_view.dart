@@ -22,13 +22,12 @@ class ProductView extends StatelessWidget {
                         height: 250,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(7),
-                          boxShadow: const [
+                          boxShadow: [
                             BoxShadow(
-                              color: Colors.grey,
-                              spreadRadius: 12,
-                              blurRadius: 22,
-                              //offset: Offset(-2, 3)
-                            )
+                                color: blueColor,
+                                spreadRadius: 2,
+                                blurRadius: 22,
+                                offset: Offset(-4, 4))
                           ],
                           image: DecorationImage(
                               image:
@@ -58,7 +57,7 @@ class ProductView extends StatelessWidget {
                             BoxShadow(
                                 spreadRadius: 0.1,
                                 blurRadius: 10,
-                                color: Colors.grey)
+                                color: blueColor)
                           ]),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
@@ -119,7 +118,7 @@ class ProductView extends StatelessWidget {
                                   children: [
                                     TextSpan(
                                         text:
-                                            "Meet Mango, a vibrant 1.5-year-old parrot with a unique blend of colorful feathers that reflect its captivating crossbreed heritage. This lively avian companion combines the best traits of its diverse lineage, boasting a playful demeanor and a melodic repertoire of chirps and squawks. Mango's feathered ensemble showcases a mesmerizing fusion of hues, creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
+                                            " creating a visually stunning spectacle that mirrors its dynamic personality. With each flap of its wings, this crossbreed parrot brings a burst of energy and joy to its surroundings, making it a delightful addition to any feathered family.",
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.normal))
@@ -175,6 +174,9 @@ class ProductView extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 30,
                   )
                 ],
               ),
