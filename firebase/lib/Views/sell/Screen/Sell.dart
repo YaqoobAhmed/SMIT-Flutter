@@ -1,14 +1,91 @@
-import 'package:firebase/colors.dart';
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-class SellScreen extends StatelessWidget {
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase/Views/Onboarding/Screen/onboarding.dart';
+import 'package:firebase/colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
+
+class SellScreen extends StatefulWidget {
   SellScreen({super.key});
 
-  TextEditingController birdNameControlle = TextEditingController();
+  @override
+  State<SellScreen> createState() => _SellScreenState();
+}
+
+class _SellScreenState extends State<SellScreen> {
+  TextEditingController titleControlle = TextEditingController();
   TextEditingController breedControlle = TextEditingController();
   TextEditingController contactController = TextEditingController();
   TextEditingController ageController = TextEditingController();
   TextEditingController priceController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController discriptionController = TextEditingController();
+  bool isLoading = false;
+  File? birdPick;
+
+  void AddPost() async {
+    String title = titleControlle.text.trim();
+    String breed = breedControlle.text.trim();
+    String contact = contactController.text.trim();
+    String age = ageController.text.trim();
+    String price = priceController.text.trim();
+    String address = addressController.text.trim();
+    String discription = discriptionController.text.trim();
+
+    if (title == "" ||
+            breed == "" ||
+            contact == "" ||
+            age == "" ||
+            price == "" ||
+            address == "" ||
+            discription == ""
+        // ||
+        // birdPick == null
+        ) {
+      print("Please fill all fields");
+    } else {
+      try {
+        setState(() {
+          isLoading = true;
+        });
+
+        // UploadTask uploadTask = FirebaseStorage.instance
+        //     .ref()
+        //     .child("birdPictures")
+        //     .child(Uuid().v1())
+        //     .putFile(birdPick!);
+
+        // TaskSnapshot taskSnapshot = await uploadTask;
+        // String donwnloadUrl = await taskSnapshot.ref.getDownloadURL();
+
+        //fore storing user info
+        FirebaseFirestore _firestore = FirebaseFirestore.instance;
+        Map<String, dynamic> sellData = {
+          "name": title,
+          "breed": breed,
+          "contact": contact,
+          "age": age,
+          "price": price,
+          "address": address,
+          "discription": discription,
+        }; // "birdPick": donwnloadUrl
+        await _firestore.collection("adds").add(sellData);
+
+        print("Add posted");
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Onboarding()));
+      } on FirebaseAuthException catch (ex) {
+        print(ex.code.toString());
+      } finally {
+        setState(() {
+          isLoading = false;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,105 +112,79 @@ class SellScreen extends StatelessWidget {
             child: Form(
                 child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.9,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    //Stack(),
                     TextFormField(
-                      // controller: nameController,
-                      keyboardType: TextInputType.name,
+                      controller: titleControlle,
+                      keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelStyle: TextStyle(color: blueColor),
-                        iconColor: blueColor,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16)),
-                        suffixIcon: Icon(
-                          Icons.person,
-                          color: blueColor,
-                        ),
-                        labelText: "Full Name",
+                        labelText: "Title:",
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+
                     TextFormField(
-                      // controller: emailController,
-                      keyboardType: TextInputType.emailAddress,
+                      controller: breedControlle,
+                      keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelStyle: TextStyle(color: blueColor),
-                        iconColor: blueColor,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16)),
-                        suffixIcon: Icon(
-                          Icons.email,
-                          color: blueColor,
-                        ),
-                        labelText: "Email",
+                        labelText: "Breed:",
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+
                     TextFormField(
-                      // controller: phoneController,
+                      controller: ageController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                          labelStyle: TextStyle(color: blueColor),
+                          labelText: "Age:",
+                          hintText: "1.2"),
+                    ),
+
+                    TextFormField(
+                      controller: discriptionController,
+                      keyboardType: TextInputType.multiline,
+                      decoration: InputDecoration(
+                        labelStyle: TextStyle(color: blueColor),
+                        labelText: "Discription:",
+                      ),
+                    ),
+
+                    TextFormField(
+                      controller: contactController,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelStyle: TextStyle(color: blueColor),
-                        iconColor: blueColor,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16)),
-                        suffixIcon: Icon(
-                          Icons.phone,
-                          color: blueColor,
-                        ),
-                        labelText: "phone",
+                        labelText: "Contact:",
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+
                     TextFormField(
-                      obscureText: true,
-                      //  controller: passwordController,
-                      keyboardType: TextInputType.name,
+                      controller: priceController,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelStyle: TextStyle(color: blueColor),
-                        iconColor: blueColor,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16)),
-                        suffixIcon: Icon(
-                          Icons.lock,
-                          color: blueColor,
-                        ),
-                        labelText: "Password",
+                        labelText: "Price:",
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+
                     TextFormField(
-                      obscureText: true,
-                      // controller: cPasswordController,
-                      keyboardType: TextInputType.name,
+                      controller: addressController,
+                      keyboardType: TextInputType.streetAddress,
                       decoration: InputDecoration(
                         labelStyle: TextStyle(color: blueColor),
-                        iconColor: blueColor,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16)),
-                        suffixIcon: Icon(
-                          Icons.lock,
-                          color: blueColor,
-                        ),
-                        labelText: "Confirm Password",
+                        labelText: "Address:",
                       ),
                     ),
                     SizedBox(
                       height: 50,
                     ),
                     GestureDetector(
-                      // onTap: RegisterUser,
+                      onTap: AddPost,
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.05,
                         width: MediaQuery.of(context).size.width * 0.8,
@@ -142,7 +193,7 @@ class SellScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(16)),
                         child: Center(
                           child: Text(
-                            "Signup",
+                            "Add Post",
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
@@ -154,16 +205,16 @@ class SellScreen extends StatelessWidget {
             )),
           ),
 
-          // Conditionally show CircularProgressIndicator based on isLoading
-          // if (isLoading)
-          //   Container(
-          //     color: Colors.black.withOpacity(0.5),
-          //     child: Center(
-          //       child: CircularProgressIndicator(
-          //         color: blueColor,
-          //       ),
-          //     ),
-          //   ),
+          //Conditionally show CircularProgressIndicator based on isLoading
+          if (isLoading)
+            Container(
+              color: Colors.black.withOpacity(0.5),
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: blueColor,
+                ),
+              ),
+            ),
         ],
       ),
     );
