@@ -31,9 +31,9 @@ class _SellScreenState extends State<SellScreen> {
   void AddPost() async {
     String title = titleControlle.text.trim();
     String breed = breedControlle.text.trim();
-    String contact = contactController.text.trim();
-    String age = ageController.text.trim();
-    String price = priceController.text.trim();
+    var contact = contactController.text.trim();
+    var age = ageController.text.trim();
+    var price = priceController.text.trim();
     String address = addressController.text.trim();
     String discription = discriptionController.text.trim();
 

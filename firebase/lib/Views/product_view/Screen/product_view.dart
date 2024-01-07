@@ -2,7 +2,7 @@ import 'package:firebase/colors.dart';
 import 'package:flutter/material.dart';
 
 class ProductView extends StatelessWidget {
-  const ProductView(
+  ProductView(
       {super.key,
       required this.image,
       required this.name,
@@ -15,10 +15,10 @@ class ProductView extends StatelessWidget {
   final String image;
   final String name;
   final String breed;
-  final double age;
+  var age;
   final String discription;
   final String address;
-  final int price;
+  var price;
   final String contact;
 
   @override
@@ -44,8 +44,8 @@ class ProductView extends StatelessWidget {
                             blurRadius: 22,
                             offset: Offset(-4, 4))
                       ],
-                      image: DecorationImage(
-                          image: AssetImage(image), fit: BoxFit.fill),
+                      // image: DecorationImage(
+                      //     image: NetworkImage(image), fit: BoxFit.fill),
                     ),
                   ),
                 ),

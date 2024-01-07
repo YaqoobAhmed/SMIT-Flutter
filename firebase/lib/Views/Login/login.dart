@@ -1,4 +1,4 @@
-import 'package:firebase/Views/Mainpage/home.dart';
+import 'package:firebase/Views/Onboarding/Screen/onboarding.dart';
 import 'package:firebase/Views/Register/register.dart';
 import 'package:firebase/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -37,10 +37,10 @@ class _LoginViewState extends State<LoginView> {
         password: password,
       );
 
-      // After successful login, navigate to the HomeView
+      // After successful login, navigate to the OnboardingScreen
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomeView()),
+        MaterialPageRoute(builder: (context) => Onboarding()),
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
