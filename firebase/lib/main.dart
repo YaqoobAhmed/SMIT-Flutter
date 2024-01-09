@@ -1,3 +1,4 @@
+import 'package:firebase/Views/Article/Screen_article/article_screen.dart';
 import 'package:firebase/Views/Login/login.dart';
 import 'package:firebase/Views/Onboarding/Screen/onboarding.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: (FirebaseAuth.instance.currentUser != null)
-          ? Onboarding()
+          ? ArticleScreen()
           : LoginView(),
     );
   }
