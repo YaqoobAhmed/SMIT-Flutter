@@ -1,6 +1,6 @@
-import 'package:firebase/Views/Article/Screen_article/article_screen.dart';
 import 'package:firebase/Views/Login/login.dart';
 import 'package:firebase/Views/Onboarding/Screen/onboarding.dart';
+import 'package:firebase/Views/Setting/Screen/Setting_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: (FirebaseAuth.instance.currentUser != null)
-          ? ArticleScreen()
+          ? SettingScreen()
           : LoginView(),
     );
   }

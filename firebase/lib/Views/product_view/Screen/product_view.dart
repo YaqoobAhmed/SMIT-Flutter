@@ -44,8 +44,8 @@ class ProductView extends StatelessWidget {
                             blurRadius: 22,
                             offset: Offset(-4, 4))
                       ],
-                      // image: DecorationImage(
-                      //     image: NetworkImage(image), fit: BoxFit.fill),
+                      image: DecorationImage(
+                          image: NetworkImage(image), fit: BoxFit.fill),
                     ),
                   ),
                 ),

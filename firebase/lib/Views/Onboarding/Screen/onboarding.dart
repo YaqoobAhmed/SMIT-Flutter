@@ -1,3 +1,4 @@
+import 'package:firebase/Views/Article/Screen_article/article_screen.dart';
 import 'package:firebase/Views/Onboarding/Widget/onboard_container.dart';
 import 'package:firebase/Views/buy/Screen/buy.dart';
 import 'package:firebase/Views/sell/Screen/Sell.dart';
@@ -61,7 +62,38 @@ class Onboarding extends StatelessWidget {
                   text: 'Scan',
                 ),
               ],
-            )
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.07,
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              OnboardContainer(
+                // onTap: () => Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => BuyScreen(),
+                //     )),
+                icon: Icon(
+                  Icons.store,
+                  color: whiteColor,
+                  size: 42.5,
+                ),
+                text: 'Food Mart',
+              ),
+              OnboardContainer(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ArticleScreen(),
+                    )),
+                icon: Icon(
+                  Icons.article,
+                  color: whiteColor,
+                  size: 42.5,
+                ),
+                text: 'Articles',
+              ),
+            ]),
           ],
         ),
       ),
