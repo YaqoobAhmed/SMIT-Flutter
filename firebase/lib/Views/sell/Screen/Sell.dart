@@ -76,8 +76,8 @@ class _SellScreenState extends State<SellScreen> {
         await _firestore.collection("adds").add(sellData);
 
         print("Add posted");
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Onboarding()));
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => OnboardingScreen()));
 
         //show bottom snackbar
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(

@@ -1,8 +1,8 @@
 import 'package:firebase/colors.dart';
 import 'package:flutter/material.dart';
 
-class ProductView extends StatelessWidget {
-  ProductView(
+class BirdViewScreen extends StatelessWidget {
+  BirdViewScreen(
       {super.key,
       required this.image,
       required this.name,

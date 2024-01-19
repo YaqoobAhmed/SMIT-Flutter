@@ -435,7 +435,9 @@
 // by new logic
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase/Views/product_view/Screen/product_view.dart';
+import 'package:firebase/Views/Onboarding/Screen/onboarding.dart';
+import 'package:firebase/Views/bird_view/Screen/bird_view.dart';
+import 'package:firebase/colors.dart';
 import 'package:flutter/material.dart';
 
 class BuyScreen extends StatelessWidget {
@@ -462,22 +464,39 @@ class BuyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => OnboardingScreen(),
+                )),
+            icon: Icon(
+              Icons.arrow_back,
+              color: whiteColor,
+            )),
+        title: Text(
+          "Buy Birds",
+          style: TextStyle(color: whiteColor),
+        ),
+        centerTitle: true,
+        backgroundColor: blueColor,
+      ),
       body: StreamBuilder<QuerySnapshot>(
         stream: fetchData(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return Center(child: Text('No data available'));
+            return const Center(child: Text('No data available'));
           } else {
             return GridView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: snapshot.data!.docs.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
               itemBuilder: (context, index) {
@@ -488,7 +507,7 @@ class BuyScreen extends StatelessWidget {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProductView(
+                      builder: (context) => BirdViewScreen(
                         image: postMap["birdPic"],
                         name: postMap["name"],
                         breed: postMap["breed"],
@@ -508,7 +527,7 @@ class BuyScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Colors.grey,
                             spreadRadius: 0.5,
@@ -527,7 +546,7 @@ class BuyScreen extends StatelessWidget {
                                 image: NetworkImage(postMap["birdPic"]),
                                 fit: BoxFit.fill,
                               ),
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(20),
                                 topRight: Radius.circular(20),
                               ),
@@ -559,6 +578,10 @@ class BuyScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
 
 /////////////////////////////////////with future builder
 

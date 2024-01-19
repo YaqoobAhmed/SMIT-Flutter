@@ -1,12 +1,13 @@
 import 'package:firebase/Views/Article/Screen_article/article_screen.dart';
+import 'package:firebase/Views/Foodmart/Screen/foodmart_screen.dart';
 import 'package:firebase/Views/Onboarding/Widget/onboard_container.dart';
 import 'package:firebase/Views/buy/Screen/buy.dart';
 import 'package:firebase/Views/sell/Screen/Sell.dart';
 import 'package:firebase/colors.dart';
 import 'package:flutter/material.dart';
 
-class Onboarding extends StatelessWidget {
-  const Onboarding({super.key});
+class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,11 +69,11 @@ class Onboarding extends StatelessWidget {
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               OnboardContainer(
-                // onTap: () => Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => BuyScreen(),
-                //     )),
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FoodMartScreen(),
+                    )),
                 icon: Icon(
                   Icons.store,
                   color: whiteColor,
@@ -84,7 +85,7 @@ class Onboarding extends StatelessWidget {
                 onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ArticleScreen(),
+                      builder: (context) => const ArticleScreen(),
                     )),
                 icon: Icon(
                   Icons.article,

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase/Views/Mainpage/home.dart';
+import 'package:firebase/Views/Onboarding/Screen/onboarding.dart';
 import 'package:firebase/colors.dart';
 // import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -69,8 +69,8 @@ class _RegisterViewState extends State<RegisterView> {
         await _firestore.collection("user").add(userdata);
 
         print("User created");
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomeView()));
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => OnboardingScreen()));
       } on FirebaseAuthException catch (ex) {
         print(ex.code.toString());
       } finally {

@@ -3,8 +3,8 @@ import 'package:firebase/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class SettingScreen extends StatelessWidget {
-  const SettingScreen({super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +20,12 @@ class SettingScreen extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  opacity: 0.8,
+                  opacity: 0.7,
                   image: AssetImage("assets/images/settings.jpg"),
                   fit: BoxFit.cover)),
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 1,
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.2,
@@ -55,7 +53,6 @@ class SettingScreen extends StatelessWidget {
                               Icons.person,
                               size: 50,
                               color: blueColor,
-                              // color: Colors.grey.shade700,
                             ),
                           ),
                         ),
@@ -74,24 +71,6 @@ class SettingScreen extends StatelessWidget {
                   "Hassan Mirza",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                // Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
-                //   Text(
-                //     "Name:",
-                //     style: TextStyle(
-                //         fontSize: 20,
-                //         fontWeight: FontWeight.bold,
-                //         color: blueColor),
-                //   ),
-                //   SizedBox(
-                //     width: 10,
-                //   ),
-                //   Text(
-                //     "Yaqoob Ahmed",
-                //     style: TextStyle(
-                //       fontSize: 20,
-                //     ),
-                //   )
-                // ]),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -162,8 +141,8 @@ class SettingScreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.05,
                     ),
                     InkWell(
-                      onTap: () {
-                        FirebaseAuth.instance.signOut();
+                      onTap: () async {
+                        await FirebaseAuth.instance.signOut();
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
