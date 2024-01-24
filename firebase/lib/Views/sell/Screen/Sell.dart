@@ -132,8 +132,8 @@ class _SellScreenState extends State<SellScreen> {
                     children: [
                       InkWell(
                         onTap: () async {
-                          XFile? selectedImage = await ImagePicker()
-                              .pickImage(source: ImageSource.gallery);
+                          XFile? selectedImage = await ImagePicker().pickImage(
+                              source: ImageSource.camera, imageQuality: 20);
                           if (selectedImage != null) {
                             File convertedfile = File(selectedImage.path);
                             setState(() {
